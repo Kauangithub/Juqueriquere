@@ -1,0 +1,54 @@
+{
+  "parque": "Parque Natural Municipal do Juqueriquerê",
+  "localizacao": "Caraguatatuba, SP",
+  "trilhas": [
+    {
+      "id": 1,
+      "nome": "Trilha do Esquilo",
+      "cor_identificacao": "Vermelho",
+      "descricao": "Uma trilha leve que serpenteia a área central do parque, ideal para observação de pequenos mamíferos e flora nativa variada.",
+      "pontos_interesse": [
+        { "planta": "Ingá", "latitude": "", "longitude": "" },
+        { "planta": "Brejaúva", "latitude": "", "longitude": "" },
+        { "planta": "Jacarandá", "latitude": "", "longitude": "" },
+        { "planta": "Pitanga", "latitude": "", "longitude": "" },
+        { "planta": "Araçá", "latitude": "", "longitude": "" }
+      ],
+      "pontos_no_mapa": [1, 2, 3, 4]
+    },
+    {
+      "id": 2,
+      "nome": "Trilha do Teiú",
+      "cor_identificacao": "Amarelo",
+      "descricao": "Trilha de curta distância focada em áreas de sol, onde é comum avistar répteis como o Teiú.",
+      "pontos_interesse": [
+        { "planta": "Carrapeta", "latitude": "", "longitude": "" }
+      ],
+      "pontos_no_mapa": [5]
+    },
+    {
+      "id": 3,
+      "nome": "Trilha Capivara",
+      "cor_identificacao": "Verde Claro",
+      "descricao": "Trilha lateral que percorre o limite da mata densa, apresentando espécies arbóreas de grande porte.",
+      "pontos_interesse": [
+        { "planta": "Jerivá", "latitude": "-23.678115", "longitude": "-45.439887" },
+        { "planta": "Ingá", "latitude": "", "longitude": "" },
+        { "planta": "Annona", "latitude": "", "longitude": "" },
+        { "planta": "Margaritaria nobilis", "latitude": "-23.678591", "longitude": "-45.439180" },
+        { "planta": "Pariparoba Mansa", "latitude": "-23.678105", "longitude": "-45.438935" }
+      ],
+      "pontos_no_mapa": [6, 8, 9]
+    },
+    {
+      "id": 4,
+      "nome": "Trilha Capivara Rio",
+      "cor_identificacao": "Verde Escuro",
+      "descricao": "Caminho que leva às margens do Rio Juqueriquerê, permitindo uma vista privilegiada do ecossistema fluvial.",
+      "pontos_interesse": [
+        { "planta": "Margaridão (Girassol-mexicano)", "latitude": "-23.678680", "longitude": "-45.440177" }
+      ],
+      "pontos_no_mapa": [7]
+    }
+  ]
+}
