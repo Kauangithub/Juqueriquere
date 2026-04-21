@@ -1,12 +1,15 @@
 import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Trilha from './pages/Trilhas/Trilhas.tsx';
+import Trilha from './pages/Trilhas/Trilha.tsx';
 import NotFound from './pages/NotFound.tsx';
 import Header from './components/ui/Header.tsx';
+import Trilhas from "./pages/Trilhas/Trilhas.tsx";
 const HomePage = () => {
   return (
     <>
       <h1>Página inicial!</h1>
-      
+      <Link to="/trilhas/">
+        <h2>Ver trilhas</h2>
+      </Link>
     </>
   );
 };
@@ -19,6 +22,7 @@ export default function App(){
         <Header/>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/trilhas/" element={<Trilhas />} />
           <Route path="/trilha/:id" element={<Trilha />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

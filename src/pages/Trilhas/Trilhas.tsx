@@ -1,15 +1,27 @@
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import capa from '../../assets/img/Capivara.png';
 import data from '../../data.json';
-import NotFound from '../NotFound';
 
-export default function Trilha(){
-    let params = useParams();
-    let id = parseInt(params.id || ``) ;
-    if (!data.trilhas[id]) return(<NotFound/>);
-    else
+export default function Trilhas(){
+    const trilhas = data.trilhas;
+    const trilhasList = trilhas.map((trilha, index) => {
+        return(
+            <div>
+                <h3>{trilha.nome}</h3>
+                <Link to={`/trilha/${index}`}>Ver detalhes</Link>
+            </div>
+        )
+    })
     return(
         <>
-            <h1>{data.trilhas[id].nome}</h1>
+            <section>
+                <div className="capa"><img src={capa}/></div>
+                <h1>Trilhas</h1>
+                <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
+                <br/>
+                <h2>Todas as Trilhas</h2>
+                {trilhasList}
+            </section>
         </>
     )
 }
