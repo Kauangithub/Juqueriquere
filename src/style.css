@@ -103,10 +103,10 @@ header{
             cursor: pointer;
         }
 
-        #scanner{background-image: url(./img/qr_code_scanner.png);}
-        #menu{background-image: url(./img/Menu.png);}
-        #scanner:hover{background-image: url(./img/QR-hover.png);}
-        #menu:hover{background-image: url(./img/Menu-hover.png);}
+        #scanner{background-image: url(./assets/icons/qr_code_scanner.png);}
+        #menu{background-image: url(./assets/icons/Menu.png);}
+        #scanner:hover{background-image: url(./assets/icons/QR-hover.png);}
+        #menu:hover{background-image: url(./assets/icons/Menu-hover.png);}
         .navBtn:hover{background-color: var(--verdeClaro);}
         
 
