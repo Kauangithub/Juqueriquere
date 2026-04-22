@@ -14,8 +14,9 @@ export default function NotFound(){
             </section>
             <section id="linksSugeridos">
             <nav className="vertical">
-                <SimpleButton>bleh</SimpleButton>
-                <SimpleButton></SimpleButton>
+                <SimpleButton
+                teste='/'
+                >bleh</SimpleButton>
             </nav>
         </section>
         </>
