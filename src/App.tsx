@@ -6,10 +6,13 @@ import Trilhas from "./pages/Trilhas/Trilhas.tsx";
 const HomePage = () => {
   return (
     <>
-      <h1>Página inicial!</h1>
-      <Link to="/trilhas/">
-        <h2>Ver trilhas</h2>
-      </Link>
+      <div className="paddingHeader"></div>
+      <section>
+        <h1>Página inicial!</h1>
+        <Link to="/trilhas/">
+          <h2>Ver trilhas</h2>
+        </Link>
+      </section>
     </>
   );
 };

@@ -9,8 +9,11 @@ export default function Trilha(){
     let trilha = data.trilhas[id];
     return(
         <>
-            <h1>{trilha.nome}</h1>
-            <p>{trilha.descricao}</p>
+            <div className="paddingHeader"></div>
+            <section>
+                <h1>{trilha.nome}</h1>
+                <p>{trilha.descricao}</p>
+            </section>
         </>
     )
 }
