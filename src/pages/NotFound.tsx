@@ -1,4 +1,5 @@
 import capa from '../assets/img/Capivara.png';
+import SimpleButton from '../components/UI/buttons/simpleButton';
 
 export default function NotFound(){
     return(
@@ -11,6 +12,12 @@ export default function NotFound(){
                 <br/>
                 <p>Aqui estão algumas sugestões para você se reencontrar:</p>
             </section>
+            <section id="linksSugeridos">
+            <nav className="vertical">
+                <SimpleButton>bleh</SimpleButton>
+                <SimpleButton></SimpleButton>
+            </nav>
+        </section>
         </>
     )
 }
