@@ -1,7 +1,7 @@
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
-export default function Scanner(){
-    const scanner = new Html5QrcodeScanner(
+export default function Scanner() {
+  const scanner = new Html5QrcodeScanner(
     "reader",
     {
       fps: 10,
@@ -13,20 +13,18 @@ export default function Scanner(){
   scanner.render(onScanSuccess, onScanFailure);
 
   async function onScanSuccess(decodedText: any) {
-    console.log("QR lido:", decodedText);
 
-    // código sem verificação, utilizar apenas para teste
-    window.location.href = `${decodedText}`;
+    window.location.href = `/trilha/${decodedText}`;
+    let path = "/" + decodedText;
 
-    // Código utilizando if else
-    // if (decodedText.startsWith("trilha")) {
-    //   window.location.href = `${decodedText}`;
-    // } else {
-    //   alert("QR inválido");
 
-    // }
-
+    if (/^\/trilha\/\d+\/?$/.test(path)) {
+      window.location.href = `/${decodedText.replace(/^\/+/, "")}`;
+    } else {
+      alert("QR inválido");
+    }
     scanner.pause();
+    scanner.clear();
   }
 
   async function onScanFailure() {
