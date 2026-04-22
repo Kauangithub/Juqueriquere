@@ -1,7 +1,7 @@
 import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Trilha from './pages/Trilhas/Trilha.tsx';
 import NotFound from './pages/NotFound.tsx';
-import Header from './components/UI/Header.tsx';
+import Header from './components/ui/Header.tsx';
 import Trilhas from "./pages/Trilhas/Trilhas.tsx";
 const HomePage = () => {
   return (
