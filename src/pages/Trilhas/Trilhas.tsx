@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import data from '../../data.json';
-import seta1 from '../../assets/icons/seta12.png';
+import SimpleButton from '../../components/ui/buttons/SimpleButton';
 
 export default function Trilhas(){
     const trilhas = data.trilhas;
@@ -8,7 +7,7 @@ export default function Trilhas(){
         return(
             <div className='cardTrilha'>
                 <h3>{trilha.nome}</h3>
-                <Link to={`/trilha/${index}`}><div className="btnDark">Ver detalhes <img src={seta1} alt="" /></div></Link>
+                <SimpleButton path={`/trilha/${index}`} tema='dark'>Ver detalhes</SimpleButton>
             </div>
         )
     })
