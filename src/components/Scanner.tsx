@@ -47,38 +47,12 @@ export default function Scanner({ onClose }: { onClose: () => void }) {
   }, []);
 
   return (
-    <div style={overlayStyle}>
-      <div style={modalStyle}>
-        <h2>Escaneie o QR Code</h2>
+    <div className="leitorQR">
+      <div className="container vertical">
+        <h1>Aponte a câmera<br></br>para um código QR</h1>
         <div id="reader" />
         <button onClick={onClose}>Fechar</button>
       </div>
     </div>
   );
 }
-
-const overlayStyle: React.CSSProperties = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100vw",
-  height: "100vh",
-  background: "rgba(0,0,0,0.6)",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: 9999,
-};
-
-const modalStyle: React.CSSProperties = {
-  background: "#fff",
-  padding: "20px",
-  borderRadius: "10px",
-  textAlign: "center",
-
-  width: "90%",
-  maxWidth: "400px",
-
-  maxHeight: "80vh",
-  overflow: "hidden",
-};
