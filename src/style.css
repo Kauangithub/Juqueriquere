@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-@font-face {font-family: Heavitas; src: url(./assets/fonts/Heavitas.ttf);}
+@font-face {font-family: Heavitas; src: url(/fonts/Heavitas.ttf);}
 
 :root{
     --verdeEscuro: #008A66;
