@@ -48,7 +48,7 @@ export default function Scanner({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="leitorQR">
-      <div className="container vertical">
+      <div className="QRcontainer vertical">
         <h1>Aponte a câmera<br></br>para um código QR</h1>
         <div id="reader" />
         <button onClick={onClose}>Fechar</button>
