@@ -3,6 +3,8 @@ import Trilha from './pages/Trilhas/Trilha.tsx';
 import NotFound from './pages/NotFound.tsx';
 import Header from './components/ui/Header.tsx';
 import Trilhas from "./pages/Trilhas/Trilhas.tsx";
+import Footer from "./components/ui/Footer.tsx";
+
 const HomePage = () => {
   return (
     <>
@@ -23,14 +25,18 @@ export default function App(){
     <>
       <Router>
         <Header/>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/trilhas/" element={<Trilhas />} />
-          <Route path="/trilha/:id" element={<Trilha />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/trilhas/" element={<Trilhas />} />
+            <Route path="/trilha/:id" element={<Trilha />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+          <div id='reader'></div>
+        </div>
+        <Footer />
       </Router>
-      <div id='reader'></div>
+      
     </>
   )
 };
