@@ -13,12 +13,12 @@ export default defineConfig({
       },
 
       manifest: {
-        name: 'Meu App',
-        short_name: 'App',
+        name: 'Juqueriquere - App de Trilhas',
+        short_name: 'Juqueriquere - Trilhas',
         start_url: '/',
         display: 'standalone',
-        background_color: '#ffffff',
-        theme_color: '#000000',
+        background_color: '#008A66',
+        theme_color: '#008A66',
         icons: [
           {
             src: '/icon-192.png',
@@ -34,7 +34,16 @@ export default defineConfig({
       },
 
       workbox: {
-        navigateFallback: '/index.html'
+        navigateFallback: '/index.html',
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'pages-cache'
+            }
+          }
+        ]
       }
     })
   ],

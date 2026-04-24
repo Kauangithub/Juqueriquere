@@ -1,13 +1,11 @@
 import data from '../../data.json';
-import SimpleButton from '../../components/ui/buttons/SimpleButton';
 
 export default function Trilhas(){
     const trilhas = data.trilhas;
-    const trilhasList = trilhas.map((trilha, index) => {
+    const trilhasList = trilhas.map((trilha) => {
         return(
             <div className='cardTrilha'>
                 <h3>{trilha.nome}</h3>
-                <SimpleButton path={`/trilha/${index}`} tema='dark'>Ver detalhes</SimpleButton>
             </div>
         )
     })
