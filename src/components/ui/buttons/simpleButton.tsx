@@ -1,28 +1,24 @@
 import { Link } from "react-router-dom";
-import seta1 from '../../../assets/icons/seta1.png';
-import seta12 from '../../../assets/icons/seta12.png';
+import { icons } from "../icons";
+interface props {
+    path?: string;
+    children?: React.ReactNode;
+    tema?: string;
+    icon?: string;
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+}
 
-export default function SimpleButton({path, children, tema, icon}: {path?: string, children?: any, tema?: string, icon?: string}) {
-    if(!tema) tema = 'default';
+export default function SimpleButton({path, children, tema, icon, onClick}: props) {
     if(!icon) icon = 'seta';
-    const icons = {
-        "default": {
-            "seta" : seta1
-        },
-        "dark": {
-            "seta" : seta12
-        }
-        
-    } as any;
     tema = (tema && icons[tema]) ? tema : 'default';
     const imagemSrc = icons[tema]?.[icon] || null;
+    const className = tema == 'default'? 'btn' : `btn btn${tema.charAt(0).toUpperCase() + tema.slice(1)}`; // ensuring that the theme will always match the class, and if doesnt exist an specific style, it'll use the default one
     return(
-            <Link to={path || ''} >
-                <div className={tema == 'dark'? 'btnDark' : ''}>
+            <Link to={path || ''} onClick={onClick}>
+                <div className={className}> 
                     {children || ""} 
                     {imagemSrc && <img src={imagemSrc} alt={icon} />}
                 </div> 
             </Link>
-    )
-    
+    ) 
 }
