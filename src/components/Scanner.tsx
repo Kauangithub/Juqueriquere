@@ -5,7 +5,8 @@ export default function Scanner({ onClose }: { onClose: () => void }) {
   const qrRef = useRef<Html5Qrcode | null>(null);
 
   useEffect(() => {
-    if (qrRef.current) return; 
+    if (qrRef.current) return;
+
     const html5QrCode = new Html5Qrcode("reader");
     qrRef.current = html5QrCode;
 
@@ -13,7 +14,7 @@ export default function Scanner({ onClose }: { onClose: () => void }) {
       await html5QrCode.start(
         { facingMode: "environment" },
         { fps: 10, qrbox: { width: 250, height: 250 } },
-        (decodedText) => {
+        async (decodedText) => {
           const path = decodedText.startsWith("/")
             ? decodedText
             : `/${decodedText}`;
@@ -24,19 +25,33 @@ export default function Scanner({ onClose }: { onClose: () => void }) {
             alert("QR inválido");
           }
 
-          stop();
+          await stop();   
           onClose();
         },
-        () => {}
+        () => { }
       );
     };
 
     const stop = async () => {
       try {
-        await html5QrCode.stop();
-        html5QrCode.clear();
-        qrRef.current = null;
-      } catch {}
+        if (qrRef.current) {
+          await qrRef.current.stop().catch(() => { });
+          qrRef.current.clear();
+          qrRef.current = null;
+        }
+
+        // 🔥 FORÇA desligar a câmera (resolve o problema)
+        const video = document.querySelector("#reader video") as HTMLVideoElement;
+
+        if (video && video.srcObject) {
+          const stream = video.srcObject as MediaStream;
+          stream.getTracks().forEach((track) => track.stop());
+          video.srcObject = null;
+        }
+
+      } catch (err) {
+        console.warn("Erro ao parar câmera:", err);
+      }
     };
 
     start();
@@ -46,12 +61,46 @@ export default function Scanner({ onClose }: { onClose: () => void }) {
     };
   }, []);
 
+  const handleClose = async () => {
+    try {
+      if (qrRef.current) {
+        await qrRef.current.stop().catch(() => { });
+        qrRef.current.clear();
+        qrRef.current = null;
+      }
+
+      // 🔥 força matar qualquer stream restante
+      const videos = document.querySelectorAll("#reader video");
+
+      videos.forEach((video: any) => {
+        if (video.srcObject) {
+          const stream = video.srcObject as MediaStream;
+          stream.getTracks().forEach((track) => track.stop());
+          video.srcObject = null;
+        }
+      });
+
+      // 🔥 limpa DOM manualmente (ESSENCIAL)
+      const reader = document.getElementById("reader");
+      if (reader) reader.innerHTML = "";
+
+      // 🔥 pequeno delay pra garantir que browser finalize stream
+      setTimeout(() => {
+        onClose();
+      }, 100);
+
+    } catch (err) {
+      console.warn("Erro ao fechar scanner:", err);
+      onClose();
+    }
+  };
+
   return (
-    <div className="leitorQR">
-      <div className="QRcontainer vertical">
+    <div className="leitorQR" onClick={handleClose}>
+      <div className="container vertical" onClick={(e) => e.stopPropagation()}>
         <h1>Aponte a câmera<br></br>para um código QR</h1>
         <div id="reader" />
-        <button onClick={onClose}>Fechar</button>
+        <button onClick={handleClose}>Fechar</button>
       </div>
     </div>
   );
