@@ -16,6 +16,7 @@ export default function Trilhas(){
     })
     return(
         <>
+            <div className="paddingHeader"></div>
             <section className='img-fade' id='capivara'>
                 <div className="conteudo vertical">
                     <div className="info">
