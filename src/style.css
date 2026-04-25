@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-@font-face {font-family: Heavitas; src: url(./assets/fonts/Heavitas.ttf);}
+@font-face {font-family: Heavitas; src: url(/fonts/Heavitas.ttf);}
 
 :root{
     --verdeEscuro: #008A66;
@@ -187,6 +187,7 @@ header{
     background-position: center top;
 
     padding-top: 80%;
+    padding-bottom: 30px;
 }
 
 #capivara{
@@ -239,6 +240,9 @@ header{
         .conteudo{
             width: 40%;
         }
+    }
+    #paddingImgFade{
+        display: none;
     }
     #capivara{
         background-image: url(./assets/img/CapivaraDesktop.png);
