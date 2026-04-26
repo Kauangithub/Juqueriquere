@@ -1,5 +1,5 @@
-import SimpleButton from "./buttons/SimpleButton";
 import { useState } from 'react';
+import Switch from "./buttons/Switch";
 interface PontoInteresse {
     planta: string;
     latitude: string;
@@ -18,7 +18,8 @@ interface TrilhaProps {
 }
 
 export default function TrilhaInfo({trilha}: TrilhaProps){
-    const [mode, setMode] = useState("default");
+    const options = ["Informações", "Pontos no mapa"];
+    const [mode, setMode] = useState(options[0]);
     const Conteudo = () => {
         return(
             <div>
@@ -33,23 +34,24 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
             <h1>Pontos da {trilha.nome}</h1>
         )
     }
+    const render = () =>{
+        const componentes = {
+            [options[0]]: <Conteudo />,
+            [options[1]]: <Pontos />
+        };
+
+        return componentes[mode] || null;
+    }
 
     return(
         <>
-            <div className="horizontal">
-                <SimpleButton 
-                icon="none" 
-                tema={mode == "default" ? 'dark' : ''}
-                onClick={() => setMode("default")}
-                >Informações</SimpleButton>
-                <SimpleButton 
-                icon="none" 
-                tema={mode == "default" ? '' : 'dark'}
-                onClick={() => setMode("")}
-                >Pontos no mapa</SimpleButton>
-            </div>
-            <div>
-                {mode == "default" ? <Conteudo /> : <Pontos />}
+            <Switch
+            options={options}
+            onChange={(newValue) => setMode(newValue)}
+            value={mode}
+            ></Switch>
+            <div className="cardTrilhaInfo">
+                {render()}
             </div>
         </>
     )
