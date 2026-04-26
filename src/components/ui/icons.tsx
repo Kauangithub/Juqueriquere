@@ -12,5 +12,9 @@ export const icons = {
         "dark": {
             "seta" : setaDark,
             "QR"   : QRDark
+        },
+         "none": {
+            "seta" : setaDark,
+            "QR"   : QRDark,
         }
 } as any;

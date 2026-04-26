@@ -4,11 +4,18 @@ interface SwitchProps {
     options: string[];
     onChange: (value: string) => void;
     value: string;
+    style?: string;
 }
 
-export default function Switch({ options, onChange, value }: SwitchProps) {
+export default function Switch({ options, onChange, value, style }: SwitchProps) {
+    const styleClass = {
+        "dark": "switch-dark",
+        "traced": "switch-traced",
+        "traced-dark": "switch-traced-dark"
+    } as any;
+    style = style && styleClass[style] ? styleClass[style] : '';
     return(
-        <div className="switch horizontal">
+        <div className={'switch horizontal '+ style}>
             {options.map((option) => (
                 <SimpleButton
                     key={option}

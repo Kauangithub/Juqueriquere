@@ -23,7 +23,6 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
     const Conteudo = () => {
         return(
             <div>
-                
                 <h1>{trilha.nome}</h1>
                 <p>{trilha.descricao}</p>
             </div>
@@ -39,7 +38,6 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
             [options[0]]: <Conteudo />,
             [options[1]]: <Pontos />
         };
-
         return componentes[mode] || null;
     }
 

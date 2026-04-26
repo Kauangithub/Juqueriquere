@@ -6,8 +6,8 @@ import TrilhaInfo, { type Trilha } from '../../components/ui/TrilhaInfo';
 export default function Trilha(){
     let params = useParams();
     let id = parseInt(params.id || ``) ;
-    if (!data.trilhas[id]) return(<NotFound/>);
-    let trilha = data.trilhas[id] as Trilha;
+    const trilha = data.trilhas.find(t => t.id === id) as Trilha;
+    if (!trilha) return <NotFound />;
     return(
         <>
             <div className="paddingHeader"></div>

@@ -66,7 +66,18 @@ h3{
     border: 0;
     gap: 5px;
 }
-
+.btnNone{
+    display: flex;
+    font-weight: 600;
+    padding: 0px 0px;
+    margin-left: 2px;
+    background-color: transparent;
+    color: white;
+    width:fit-content;
+    border-radius: 0px;
+    border: 0;
+    gap: 5px;
+}
 section{
     padding: 0 7.5%;
 }
@@ -258,6 +269,46 @@ header{
         border-radius: 15px;
     }
 
+}
+.switch-dark{
+    background-color: var(--verdeEscuro);
+
+    .btn{
+        background-color: var(--verdeEscuro);
+        color: var(--verdeClaro);
+    }
+    .btnDark{
+        background-color: var(--verdeClaro);
+        color: var(--verdeEscuro);
+    }
+}
+.switch-traced{
+    background-color: var(--verdeClaro);
+
+    .btn{
+        background-color: var(--verdeClaro);
+        border: 2px solid transparent;
+        color: var(--verdeEscuro);
+    }
+    .btnDark{
+        background-color: var(--verdeClaro);
+        border: 2px solid var(--verdeEscuro);
+        color: var(--verdeEscuro);
+    }
+}
+.switch-traced-dark{
+    background-color: var(--verdeEscuro);
+
+    .btn{
+        background-color: var(--verdeEscuro);
+        border: 2px solid transparent;
+        color: var(--verdeClaro);
+    }
+    .btnDark{
+        background-color: var(--verdeEscuro);
+        border: 2px solid var(--verdeClaro);
+        color: var(--verdeClaro);
+    }
 }
 
 @media screen and (width > 850px) {
