@@ -6,9 +6,10 @@ interface props {
     tema?: string;
     icon?: string;
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+    type?: string;
 }
 
-export default function SimpleButton({path, children, tema, icon, onClick}: props) {
+export default function SimpleButton({path, children, tema, icon, type, onClick}: props) {
     if(!icon) icon = 'seta';
     tema = (tema && icons[tema]) ? tema : 'default';
     const imagemSrc = icons[tema]?.[icon] || null;
@@ -16,8 +17,9 @@ export default function SimpleButton({path, children, tema, icon, onClick}: prop
     return(
             <Link to={path || ''} onClick={onClick}>
                 <div className={className}> 
-                    {children || ""} 
-                    {imagemSrc && <img src={imagemSrc} alt={icon} />}
+                    {type == "back" ? imagemSrc && <img src={imagemSrc} alt={icon} className="back"/> : children}
+                    {type == "back" ?  children : imagemSrc && <img src={imagemSrc} alt={icon} />}
+                    {}
                 </div> 
             </Link>
     ) 

@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import data from '../../data.json';
 import NotFound from '../NotFound';
-import TrilhaInfo, { type Trilha } from '../../components/ui/TrilhaInfo';
+import TrilhaInfo, { type Trilha } from './TrilhaInfo';
+import SimpleButton from '../../components/ui/buttons/SimpleButton';
 
 export default function Trilha(){
     let params = useParams();
@@ -12,7 +13,10 @@ export default function Trilha(){
         <>
             <div className="paddingHeader"></div>
             <section>
-                <h1>{trilha.nome}</h1>
+                <div className='horizontal'>
+                    <SimpleButton tema='none' path="/trilhas/" type='back'></SimpleButton>
+                    <h1>{trilha.nome}</h1>
+                </div>
                 <p>{trilha.descricao}</p>
                 <TrilhaInfo trilha={trilha}/>
             </section>

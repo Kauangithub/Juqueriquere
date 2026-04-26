@@ -311,6 +311,17 @@ header{
     }
 }
 
+.pontosTrilha{
+    background-color: var(--verdeClaro);
+    width: 500px;
+    gap: 20px;
+    .btnDark{
+        width: 80%;
+    }
+}
+.back{
+        transform: scaleX(-1);
+}
 @media screen and (width > 850px) {
     body{
         padding-top: 0;

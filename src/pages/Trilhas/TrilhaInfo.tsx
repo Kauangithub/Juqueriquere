@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Switch from "./buttons/Switch";
+import Switch from "../../components/ui/buttons/Switch";
+import SimpleButton from '../../components/ui/buttons/SimpleButton';
 interface PontoInteresse {
     planta: string;
     latitude: string;
@@ -29,8 +30,16 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
         )
     }
     const Pontos = () => {
+        const rendderPontos = trilha.pontos_interesse.map((ponto, index) => (
+            <SimpleButton key={index} icon='none' tema='dark'>
+                <h2>{ponto.planta}</h2>
+            </SimpleButton>
+        ));
         return(
-            <h1>Pontos da {trilha.nome}</h1>
+            <div className="conteudo pontosTrilha">
+                <h1>Pontos da {trilha.nome}</h1>
+                {rendderPontos}
+            </div>
         )
     }
     const render = () =>{

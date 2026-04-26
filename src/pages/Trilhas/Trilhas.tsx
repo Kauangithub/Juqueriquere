@@ -41,7 +41,11 @@ export default function Trilhas() {
             <section className='img-fade' id='capivara'>
                 <div className="conteudo vertical">
                     <div className="info">
-                        <h1>Trilhas</h1>
+                        <div className="horizontal">
+                            <SimpleButton path="/" type='back' tema='none'></SimpleButton>
+                            <h1>Trilhas</h1>
+                        </div>
+                        
                         <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
                     </div>
 
