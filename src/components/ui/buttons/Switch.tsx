@@ -13,9 +13,9 @@ export default function Switch({ options, onChange, value, style }: SwitchProps)
         "traced": "switch-traced",
         "traced-dark": "switch-traced-dark"
     } as any;
-    style = style && styleClass[style] ? styleClass[style] : '';
+    style = style && styleClass[style] ? styleClass[style] : 'switch';
     return(
-        <div className={'switch horizontal '+ style}>
+        <div className={'horizontal '+ style}>
             {options.map((option) => (
                 <SimpleButton
                     key={option}

@@ -253,7 +253,7 @@ header{
     
 }
 
-.switch{
+.switch, .switch-dark, .switch-traced, .switch-traced-dark{
     background-color: var(--verdeClaro);
     display: flex;
     gap: 10px;
@@ -311,12 +311,16 @@ header{
     }
 }
 
+.orderByList{
+    margin: 5px;
+}
+
 .pontosTrilha{
-    background-color: var(--verdeClaro);
-    width: 500px;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     .btnDark{
-        width: 80%;
+        width: 100%;
     }
 }
 .back{

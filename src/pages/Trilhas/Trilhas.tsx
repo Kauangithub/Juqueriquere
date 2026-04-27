@@ -60,7 +60,7 @@ export default function Trilhas() {
                                 icon='none' 
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                             >
-                                {orderKey + ' ▼'}
+                                {isMenuOpen? orderKey + ' ▲': orderKey + ' ▼'}
                             </SimpleButton>
                         </div>
                         {isMenuOpen && <OrderByList />}

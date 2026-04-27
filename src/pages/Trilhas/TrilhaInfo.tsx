@@ -36,7 +36,7 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
             </SimpleButton>
         ));
         return(
-            <div className="conteudo pontosTrilha">
+            <div className="pontosTrilha">
                 <h1>Pontos da {trilha.nome}</h1>
                 {rendderPontos}
             </div>
@@ -57,7 +57,7 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
             onChange={(newValue) => setMode(newValue)}
             value={mode}
             ></Switch>
-            <div className="cardTrilhaInfo">
+            <div className="cardTrilhaInfo conteudo">
                 {render()}
             </div>
         </>
