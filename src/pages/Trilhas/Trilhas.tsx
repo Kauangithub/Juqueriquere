@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SimpleButton from '../../components/ui/buttons/SimpleButton.tsx';
 import data from '../../data.json';
 import Switch from '../../components/ui/buttons/Switch.tsx';
+import Select from '../../components/ui/form/Select.tsx';
 
 export default function Trilhas() {
     const order = {
@@ -59,6 +60,13 @@ export default function Trilhas() {
                                 >
                                     {isMenuOpen? orderKey + ' ▲': orderKey + ' ▼'}
                                 </SimpleButton>
+                                <Select 
+                                options={Object.keys(order)}
+                                onChange={(newValue) => {
+                                    setOrderKey(newValue as OrderKey);
+                                }}
+                                value={orderKey}
+                                ></Select>
                             </div>
                         </div>
                         {isMenuOpen && <OrderByList />}
