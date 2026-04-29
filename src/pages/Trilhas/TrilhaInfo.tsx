@@ -19,12 +19,12 @@ interface TrilhaProps {
 }
 
 export default function TrilhaInfo({trilha}: TrilhaProps){
-    const options = ["Informações", "Pontos no mapa"];
+    const options = ["Informações", "Pontos de Interesse"];
     const [mode, setMode] = useState(options[0]);
     const Conteudo = () => {
         return(
-            <div>
-                <h1>{trilha.nome}</h1>
+            <div className='vertical gap5'>
+                <h2>{trilha.nome}</h2>
                 <p>{trilha.descricao}</p>
             </div>
         )
@@ -32,13 +32,13 @@ export default function TrilhaInfo({trilha}: TrilhaProps){
     const Pontos = () => {
         const rendderPontos = trilha.pontos_interesse.map((ponto, index) => (
             <SimpleButton key={index} icon='none' tema='dark'>
-                <h2>{ponto.planta}</h2>
+                <h3>{ponto.planta}</h3>
             </SimpleButton>
         ));
         return(
-            <div className="pontosTrilha">
-                <h1>Pontos da {trilha.nome}</h1>
-                {rendderPontos}
+            <div className="pontosTrilha vertical">
+                <h2>Pontos de interesse em {trilha.nome}:</h2>
+                <div className="vertical gap5">{rendderPontos}</div>
             </div>
         )
     }

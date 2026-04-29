@@ -12,12 +12,18 @@ export default function Trilha(){
     return(
         <>
             <div className="paddingHeader"></div>
-            <section>
-                <div className='horizontal'>
-                    <SimpleButton tema='none' path="/trilhas/" type='back'></SimpleButton>
-                    <h1>{trilha.nome}</h1>
+            <section className='vertical conteudo'>
+                <SimpleButton path="/trilhas/" type='back'>Voltar para Trilhas</SimpleButton>
+
+                <div className="mapa">
+                    <p>Mapa que a moça do parque não fez até hoje...</p>
                 </div>
-                <p>{trilha.descricao}</p>
+                <div className='vertical gap5'>
+                    <div className='horizontal titulo'>
+                        <h1>{trilha.nome}</h1>
+                    </div>
+                    <p>{trilha.descricao}</p>
+                </div>
                 <TrilhaInfo trilha={trilha}/>
             </section>
         </>

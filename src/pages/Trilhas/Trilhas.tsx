@@ -30,7 +30,7 @@ export default function Trilhas() {
                     setOrderKey(newValue as OrderKey);
                 }}
                 value={orderKey}
-                style='traced-dark'
+                style='traced'
             />
         </div>
     );
@@ -40,28 +40,26 @@ export default function Trilhas() {
             <div className="paddingHeader" id='paddingImgFade'></div>
             <section className='img-fade' id='capivara'>
                 <div className="conteudo vertical">
-                    <div className="info">
-                        <div className="horizontal">
-                            <SimpleButton path="/" type='back' tema='none'></SimpleButton>
-                            <h1>Trilhas</h1>
-                        </div>
-                        
+                    <div className="info vertical gap5">
+                        <h1>Trilhas</h1>                        
                         <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
                     </div>
 
                     <div className="lista vertical">
-                        <h2>Todas as Trilhas</h2>
+                        <h3>Todas as Trilhas:</h3>
                         
                         <div className='horizontal' id='filtros'>
                             <p>Exibindo {trilhasList.length} trilhas</p>
-                            <p>ordenar por: </p>
-                            <SimpleButton 
-                                tema='none' 
-                                icon='none' 
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            >
-                                {isMenuOpen? orderKey + ' ▲': orderKey + ' ▼'}
-                            </SimpleButton>
+                            <div className="horizontal gap5">
+                                <p>Ordenar por: </p>
+                                <SimpleButton
+                                    tema='none'
+                                    icon='none'
+                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                >
+                                    {isMenuOpen? orderKey + ' ▲': orderKey + ' ▼'}
+                                </SimpleButton>
+                            </div>
                         </div>
                         {isMenuOpen && <OrderByList />}
                         {trilhasList}

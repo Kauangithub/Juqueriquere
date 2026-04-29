@@ -6,7 +6,12 @@
     box-sizing: border-box;
 }
 
-@font-face {font-family: Heavitas; src: url(/fonts/Heavitas.ttf);}
+@font-face {
+    font-family: Heavitas; src: url(/fonts/Heavitas.ttf);
+    ascent-override: 100%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+}
 
 :root{
     --verdeEscuro: #008A66;
@@ -24,10 +29,13 @@ h1, h2{
 }
 h1{
     font-size: 24px;
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
 }
 p, a{
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
 }
 h3{
@@ -44,9 +52,13 @@ h3{
     display: flex;
     flex-direction: column;
 }
+.gap5{
+    gap: 5px;
+}
 
 .btn{
     display: flex;
+    height: fit-content;
     font-weight: 600;
     padding: 10px 20px;
     background-color: var(--verdeClaro);
@@ -54,13 +66,19 @@ h3{
     width:fit-content;
     border-radius: 20px;
     gap: 5px;
+    align-items: center;
+
+    img{
+        width: 20px;
+        height: 20px;
+    }
 }
 .btnDark, button{
     display: flex;
     font-weight: 600;
     padding: 10px 20px;
     background-color: var(--verdeEscuro);
-    color: var(--verdeClaro);
+    color: #fff;
     width:fit-content;
     border-radius: 20px;
     border: 0;
@@ -97,15 +115,18 @@ footer{
     align-items: center;
     justify-content: center;
     gap: 30px;
+    img{
+        height: 70px;
+    }
 }
 
 .paddingHeader{
-    height: 150px;
+    height: 120px;
 }
 header{
     width: 95%;
-    height: 90px;
-    padding: 15px 30px;
+    height: 75px;
+    padding: 10px 20px;
     background-color: var(--headerBackground);
     backdrop-filter: blur(15px);
     border-radius: 100px;
@@ -113,7 +134,7 @@ header{
     justify-content: space-between;
     position: fixed;
     left: 2.5%;
-    top: 30px;
+    top: 15px;
 
     .logo{
         height: 90%;
@@ -121,11 +142,11 @@ header{
     }
 
     nav{
-        gap: 5px;
-        height: 85%;
+        height: 100%;
+        align-items: center;
 
         .navBtn{
-            height: 100%;
+            height: 90%;
             aspect-ratio: 1/1;
             padding: 10px;
             display: flex;
@@ -133,7 +154,7 @@ header{
             transition: .3s ease-in-out;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 30px;
+            background-size: 60%;
             cursor: pointer;
         }
 
@@ -156,6 +177,7 @@ header{
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(7px);
+    z-index: 2;
 
     .QRcontainer{
         background-color: var(--verdeClaro);
@@ -198,7 +220,6 @@ header{
     background-position: center top;
 
     padding-top: 80%;
-    padding-bottom: 30px;
 }
 
 #capivara{
@@ -209,7 +230,9 @@ header{
     gap: 10px;
 }
 .conteudo{
-    gap: 30px;
+    gap: 20px;
+    padding-bottom: 30px;
+
 }
 
 .cardTrilha{
@@ -231,7 +254,6 @@ header{
         width: fit-content;
     }
 }
-
 .cardTrilhaInfo{
     background-color: var(--verdeClaro);
     display: flex;
@@ -241,7 +263,10 @@ header{
     width: auto;
     border-radius: 20px;
     transition: transform .35s ease-in-out;
-    h1{
+    h2{
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 800;
         color: var(--verdeEscuro);
     }
 
@@ -253,20 +278,43 @@ header{
     
 }
 
+.titulo{
+    gap: 10px;
+    align-items: center;
+
+    a, img{
+        width: 26px;
+        height: 26px;
+    }
+}
+
 .switch, .switch-dark, .switch-traced, .switch-traced-dark{
     background-color: var(--verdeClaro);
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     padding: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: fit-content;
+    gap: 5px;
+    
     border-radius: 20px;
 
-    .btnDark{
+    a{
+        width: 100%;
+    }
+    .btn{
         display: flex;
-        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         border-radius: 15px;
+        padding: 10px;
+        transition: all .3s ease-in-out;
+        text-align: center;
+        height: 100%;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .btn:hover{
+        cursor: pointer;
     }
 
 }
@@ -312,26 +360,48 @@ header{
 }
 
 .orderByList{
-    margin: 5px;
+    margin-bottom: 20px;
 }
 
 .pontosTrilha{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    .btnDark{
-        width: 100%;
-    }
+    gap: 15px;
+    h1{color: var(--verdeEscuro);}
+
+    .btnDark{width: 100%; border-radius: 10px;}
 }
 .back{
-        transform: scaleX(-1);
+    transform: scaleX(-1);
 }
-@media screen and (width > 850px) {
+
+.mapa{
+    width: 100%;
+    padding: 20px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--verdeClaro);
+    border-radius: 20px;
+    
+    p{color: var(--texto);}
+}
+
+#filtros{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .horizontal{
+        align-items: center;
+    }
+}
+
+@media (width > 850px) {
     body{
         padding-top: 0;
     }
     .img-fade{
-        min-height: 100vh;
+        min-height: 100dvh;
         background-size: cover;
         background-position: center;
         display: flex;
@@ -339,7 +409,7 @@ header{
         justify-content: center;
 
         margin-top: 0;
-        padding-top: 150px;
+        padding-top: 120px;
         padding-bottom: 30px;
 
         .conteudo{
@@ -352,5 +422,17 @@ header{
     #capivara{
         background-image: url(./assets/img/CapivaraDesktop.png);
     }
+    .switch, .switch-dark, .switch-traced, .switch-traced-dark{
+        width: fit-content;
+        .btn, a{
+            width: fit-content;
+        }
+    }
+    
 }
 
+/* @media (width > 850px) and (height > 100vw)  {
+    .img-fade{
+        min-height: 50dvh;
+    }
+} */

@@ -4,16 +4,15 @@ import NotFound from './pages/NotFound.tsx';
 import Header from './components/ui/Header.tsx';
 import Trilhas from "./pages/Trilhas/Trilhas.tsx";
 import Footer from "./components/ui/Footer.tsx";
+import SimpleButton from "./components/ui/buttons/SimpleButton.tsx";
 
 const HomePage = () => {
   return (
     <>
       <div className="paddingHeader"></div>
-      <section>
+      <section className="conteudo vertical">
         <h1>Página inicial!</h1>
-        <Link to="/trilhas/">
-          <h2>Ver trilhas</h2>
-        </Link>
+        <SimpleButton path="/trilhas/">Ir para Trilhas</SimpleButton>
       </section>
     </>
   );
