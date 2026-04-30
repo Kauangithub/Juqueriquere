@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import SimpleButton from '../../components/ui/buttons/SimpleButton.tsx';
 import data from '../../data.json';
-import Switch from '../../components/ui/buttons/Switch.tsx';
 import Select from '../../components/ui/form/Select.tsx';
 
 export default function Trilhas() {
@@ -12,7 +11,6 @@ export default function Trilhas() {
 
     type OrderKey = keyof typeof order;
     const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const trilhas = [...data.trilhas].sort(order[orderKey]);
 
     const trilhasList = trilhas.map((trilha) => (
@@ -23,18 +21,6 @@ export default function Trilhas() {
             </SimpleButton>
         </div>
     ));
-    const OrderByList = () => (
-        <div className='orderByList'>
-            <Switch
-                options={Object.keys(order)}
-                onChange={(newValue) => {
-                    setOrderKey(newValue as OrderKey);
-                }}
-                value={orderKey}
-                style='traced'
-            />
-        </div>
-    );
 
     return (
         <>
@@ -53,23 +39,16 @@ export default function Trilhas() {
                             <p>Exibindo {trilhasList.length} trilhas</p>
                             <div className="horizontal gap5">
                                 <p>Ordenar por: </p>
-                                <SimpleButton
-                                    tema='none'
-                                    icon='none'
-                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                >
-                                    {isMenuOpen? orderKey + ' ▲': orderKey + ' ▼'}
-                                </SimpleButton>
                                 <Select 
                                 options={Object.keys(order)}
                                 onChange={(newValue) => {
                                     setOrderKey(newValue as OrderKey);
                                 }}
                                 value={orderKey}
+                                style='none'
                                 ></Select>
                             </div>
                         </div>
-                        {isMenuOpen && <OrderByList />}
                         {trilhasList}
                     </div>
                 </div>

@@ -409,6 +409,18 @@ header{
     margin-bottom: 20px;
 }
 
+.dropdown-none {
+  color: white;
+  border: 0px transparent;
+  background: transparent;
+  padding: 5px;
+  transition: 0.4s;
+}
+
+option:checked {
+  font-weight: bold;
+}
+
 .pontosTrilha{
     gap: 15px;
     h1{color: var(--verdeEscuro);}
@@ -435,6 +447,7 @@ header{
 #filtros{
     width: 100%;
     justify-content: space-between;
+ 
     align-items: center;
 
     .horizontal{
