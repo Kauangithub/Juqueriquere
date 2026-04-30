@@ -5,15 +5,49 @@ import Header from './components/ui/Header.tsx';
 import Trilhas from "./pages/Trilhas/Trilhas.tsx";
 import Footer from "./components/ui/Footer.tsx";
 import SimpleButton from "./components/ui/buttons/SimpleButton.tsx";
+import Scanner from "./components/Scanner.tsx";
+import { useState } from "react";
+
 
 const HomePage = () => {
+  const [openScanner, setOpenScanner] = useState(false);
+
   return (
     <>
       <div className="paddingHeader"></div>
       <section className="conteudo vertical">
-        <h1>Página inicial!</h1>
-        <SimpleButton path="/trilhas/">Ir para Trilhas</SimpleButton>
+
+          <div className="carrossel horizontal">
+            <div className="carrosselCard vertical gap5" id="trilhas">
+                <h1>Trilhas</h1>
+                <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
+                <SimpleButton path="/trilhas/">Ir para Trilhas</SimpleButton>
+            </div>
+            <div className="carrosselCard vertical gap5" id="especies">
+                <h1>Espécies Nativas</h1>
+                <p>Descubra as espécies nativas do parque e aprenda mais sobre os seres que habitam esse espaço.</p>
+                <SimpleButton path="/trilhas/">Ir para Espécies Nativas</SimpleButton>
+            </div>
+            <div className="carrosselCard vertical gap5" id="passaros">
+                <h1>Pássaros</h1>
+                <p>Observe pássaros em seu habitat natural e perceba sons, cores e comportamentos ao longo do passeio.</p>
+                <SimpleButton path="/trilhas/">Ir para Pássaros</SimpleButton>
+            </div>
+          </div>
+
+        <div className="vertical" id="scannercard">
+          <div className="vertical">
+            <h1>Vamos explorar?</h1>
+            <p>Cada QR Code é uma nova descoberta!</p>
+            <p>Use o leitor e embarque em uma jornada cheia de histórias e curiosidades pelo parque.</p>
+          </div>
+          <SimpleButton tema="dark" icon="QR" onClick={() => setOpenScanner(true)}>Ler QR Code</SimpleButton>
+        </div>
       </section>
+
+      {openScanner && (
+        <Scanner onClose={() => setOpenScanner(false)} />
+      )}
     </>
   );
 };
@@ -31,7 +65,6 @@ export default function App(){
             <Route path="/trilha/:id" element={<Trilha />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
-          <div id='reader'></div>
         </div>
         <Footer />
       </Router>
