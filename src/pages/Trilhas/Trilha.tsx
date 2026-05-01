@@ -15,16 +15,22 @@ export default function Trilha(){
             <section className='vertical conteudo'>
                 <SimpleButton path="/trilhas/" type='back'>Voltar para Trilhas</SimpleButton>
 
-                <div className="mapa">
-                    <p>Mapa que a moça do parque não fez até hoje...</p>
-                </div>
-                <div className='vertical gap5'>
-                    <div className='horizontal titulo'>
-                        <h1>{trilha.nome}</h1>
+                <div className="vertical conteudo" id='detalheTrilha'>
+                    <div className="mapa">
+                        <p>Mapa que a moça do parque não fez até hoje...</p>
                     </div>
-                    <p>{trilha.descricao}</p>
+                    <div className="vertical conteudo" id='conteudoTrilha'>
+                        <div className='vertical gap5'>
+                            <div className='horizontal titulo'>
+                                <h1>{trilha.nome}</h1>
+                            </div>
+                            <p>{trilha.descricao}</p>
+                        </div>
+                        <div className="vertical gap5">
+                            <TrilhaInfo trilha={trilha}/>
+                        </div>
+                    </div>
                 </div>
-                <TrilhaInfo trilha={trilha}/>
             </section>
         </>
     )

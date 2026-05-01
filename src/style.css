@@ -570,13 +570,27 @@ option:checked {
         margin: 0;
         padding: 0;
         gap: 20px;
-        width: 60%;
+        width: 70%;
         justify-content: space-between;
         overflow: hidden;
     }
     .carrosselCard{
         min-width: none;
         min-width: 30%;
+    }
+
+    #detalheTrilha{
+        flex-direction: row;
+    }
+
+    #conteudoTrilha{
+        width: 50%;
+    }
+
+    .mapa{
+        width: 50%;
+        aspect-ratio: 4/3;
+        height: fit-content;
     }
 }
 
