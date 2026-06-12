@@ -18,7 +18,8 @@ export default defineConfig({
       '**/*.woff2',
       '**/*.ttf',
       '**/*.otf',
-      '**/*.eot'
+      '**/*.eot',
+      '**/*.ico'
     ],
 
     devOptions: {
@@ -47,6 +48,7 @@ export default defineConfig({
     },
 
     workbox: {
+      globPatterns: ['**/*.{ts,tsx,js,css,html,png,jpg,jpeg,svg,webp,woff,woff2,ttf,otf,eot,json,ico}'],
 
       cleanupOutdatedCaches: true,
       clientsClaim: true,
@@ -54,27 +56,36 @@ export default defineConfig({
 
       navigateFallback: '/index.html',
       runtimeCaching: [
+        // 1. Cache para o arquivo CSS do Google Fonts (StaleWhileRevalidate)
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'google-fonts-stylesheets',
+          },
+        },
+        // 2. Cache para os arquivos de fonte reais do Google Fonts (CacheFirst)
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-webfonts',
+            expiration: {
+              maxEntries: 30,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // 1 ano (fontes raramente mudam)
+            },
+          },
+        },
+        // 3. Cache para as páginas de navegação (NetworkFirst)
         {
           urlPattern: ({ request }) => request.mode === 'navigate',
           handler: 'NetworkFirst',
           options: {
             cacheName: 'pages-cache'
           }
-        },
-        {
-          urlPattern: ({ request }) => request.destination === 'image',
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'images-cache',
-            expiration: {
-              maxEntries: 100,
-              maxAgeSeconds: 60 * 60 * 24 * 30
-            }
-          }
         }
       ]
     }
-
   })
   ],
   server: {
