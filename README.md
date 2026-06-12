@@ -1,6 +1,6 @@
 <h1 align="center">
-    <img src="Readme.png" alt="Banner do Projeto" />
-    <img src="src/assets/logo.png"/>
+    <img src="Readme.webp" alt="Banner do Projeto" />
+    <img src="src/assets/logo.webp"/>
 </h1>
 
 Repositório dedicado ao site do **Parque Natural Municipal do Juqueriquerê**, desenvolvido na matéria Projeto de Extensão I, lecionada por **Nelson Alves Pinto** no **IFSP Câmpus Caraguatatuba**
@@ -27,11 +27,11 @@ Desde pontos interessantes até dificuldades a serem enfrentadas, o sistema busc
 
 | Foto | Nome | Posição |
 | :---: | :--- | :--- |
-| <img src="https://github.com/kauangithub.png" width="40" style="border-radius:50%;"/> | [Kauan Barbosa](https://github.com/kauangithub) | Desenvolvedor |
-| <img src="https://github.com/lucashirotsu.png" width="40" style="border-radius:50%;"/> | [Lucas Hirotsu](https://github.com/lucashirotsu) | Desenvolvedor |
-| <img src="https://github.com/MRC0sta.png" width="40" style="border-radius:50%;"/> | [Matheus Costa](https://github.com/MRC0sta) | Desenvolvedor |
-| <img src="https://github.com/rafaelribeiro398.png" width="40" style="border-radius:50%;"/> | [Rafael Ribeiro](https://github.com/rafaelribeiro398) | Desenvolvedor |
-| <img src="https://github.com/FatalRestart.png" width="40" style="border-radius:50%;"/> | [Ygor Prado](https://github.com/FatalRestart) | Desenvolvedor |
+| <img src="https://github.com/kauangithub.webp" width="40" style="border-radius:50%;"/> | [Kauan Barbosa](https://github.com/kauangithub) | Desenvolvedor |
+| <img src="https://github.com/lucashirotsu.webp" width="40" style="border-radius:50%;"/> | [Lucas Hirotsu](https://github.com/lucashirotsu) | Desenvolvedor |
+| <img src="https://github.com/MRC0sta.webp" width="40" style="border-radius:50%;"/> | [Matheus Costa](https://github.com/MRC0sta) | Desenvolvedor |
+| <img src="https://github.com/rafaelribeiro398.webp" width="40" style="border-radius:50%;"/> | [Rafael Ribeiro](https://github.com/rafaelribeiro398) | Desenvolvedor |
+| <img src="https://github.com/FatalRestart.webp" width="40" style="border-radius:50%;"/> | [Ygor Prado](https://github.com/FatalRestart) | Desenvolvedor |
 ## Como rodar localmente
 
 

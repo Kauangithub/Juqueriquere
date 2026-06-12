@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import { type FeatureCollection, type Geometry } from 'geojson';
-import mapImage from '../../assets/img/map.png';
+import mapImage from '../../assets/img/map.webp';
 import trilhasPontosRaw from '../../data/Trilhas PNMJ/PontosRaw.json'; 
 import trilhasLinhasRaw from '../../data/Trilhas PNMJ/TrilhasRaw.json';
 import data from '../../data.json';

@@ -1,19 +1,19 @@
-import seta         from '../../assets/icons/seta1.png';
-import setaDark     from '../../assets/icons/seta12.png';
-import QRDark       from '../../assets/icons/qr_code_scanner.png';
-import QR           from '../../assets/icons/QR-hover.png';
-import home         from '../../assets/icons/Home.png';
-import menu         from '../../assets/icons/Menu.png';
+import seta         from '../../assets/icons/seta1.webp';
+import setaDark     from '../../assets/icons/seta12.webp';
+import QRDark       from '../../assets/icons/qr_code_scanner.webp';
+import QR           from '../../assets/icons/QR-hover.webp';
+import home         from '../../assets/icons/Home.webp';
+import menu         from '../../assets/icons/Menu.webp';
 import XDark        from '../../assets/icons/X.webp';
-import X            from '../../assets/icons/X-dark.png';
-import Explorar     from '../../assets/icons/Explorar.png';
-import Sobre        from '../../assets/icons/Sobre.png';
-import Dificuldade  from '../../assets/icons/Dificuldade-light.png';
-import Distancia    from '../../assets/icons/Distancia-light.png';
-import Tempo        from '../../assets/icons/Tempo-light.png';
-import DificuldadeDark  from '../../assets/icons/Dificuldade.png';
-import DistanciaDark    from '../../assets/icons/Distancia.png';
-import TempoDark        from '../../assets/icons/Tempo.png';
+import X            from '../../assets/icons/X-dark.webp';
+import Explorar     from '../../assets/icons/Explorar.webp';
+import Sobre        from '../../assets/icons/Sobre.webp';
+import Dificuldade  from '../../assets/icons/Dificuldade-light.webp';
+import Distancia    from '../../assets/icons/Distancia-light.webp';
+import Tempo        from '../../assets/icons/Tempo-light.webp';
+import DificuldadeDark  from '../../assets/icons/Dificuldade.webp';
+import DistanciaDark    from '../../assets/icons/Distancia.webp';
+import TempoDark        from '../../assets/icons/Tempo.webp';
 
 export const icons = {
         "default": {

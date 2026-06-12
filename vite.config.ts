@@ -9,7 +9,7 @@ export default defineConfig({
     registerType: 'autoUpdate',
 
     includeAssets: [
-      '**/*.png',
+      '**/*.webp',
       '**/*.jpg',
       '**/*.jpeg',
       '**/*.svg',
@@ -34,12 +34,12 @@ export default defineConfig({
       theme_color: '#008A66',
       icons: [
         {
-          src: '/icon-192.png',
+          src: '/icon-192.webp',
           sizes: '192x192',
           type: 'image/png'
         },
         {
-          src: '/icon-512.png',
+          src: '/icon-512.webp',
           sizes: '512x512',
           type: 'image/png'
         }

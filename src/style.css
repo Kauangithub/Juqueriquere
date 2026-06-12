@@ -52,10 +52,10 @@ h3 {
     flex-direction: column;
 }
 .gap5{
-    gap: 5px;
+    gap: 5px !important;
 }
 .gap15{
-    gap: 15px;
+    gap: 15px !important;
 }
 .gap30{
     gap: 30px !important;
@@ -107,8 +107,8 @@ body{
 }
 
 #trilhas{background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(./assets/img/trilha.webp);}
-#especies{background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(./assets/img/especies.jpg);}
-#passaros{background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(./assets/img/passaros.jpeg);}
+#especies{background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(./assets/img/especies.webp);}
+#passaros{background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(./assets/img/passaros.webp);}
 
 .card{
     padding: 20px;
@@ -119,12 +119,12 @@ body{
     h1{color: var(--verdeEscuro);}
     p{color: var(--texto);}
 }
-#cardEndereco{background-image: url(assets/img/enderecoBg.png);}
-#cardHorario{background-image: url(assets/img/horarioBg.png);}
-#cardGrupo{background-image: url(assets/img/gruposBg.png);}
+#cardEndereco{background-image: url(assets/img/enderecoBg.webp);}
+#cardHorario{background-image: url(assets/img/horarioBg.webp);}
+#cardGrupo{background-image: url(assets/img/gruposBg.webp);}
 
 #scannercard{
-    background-image: url(./assets/img/QrCardBg.png);
+    background-image: url(./assets/img/QrCardBg.webp);
     background-size: cover;
     background-position: center bottom;
 
@@ -153,7 +153,7 @@ body{
 }
 
 .img-fade{
-    height: 400px;
+    min-height: 400px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
@@ -162,7 +162,10 @@ body{
 }
 
 #capivara{
-    background-image: url(./assets/img/CapivaraMobile.webp);
+    background-image: if(
+        media(width < 850px): url(./assets/img/CapivaraMobile.webp);
+        media(width > 850px): url('./assets/img/CapivaraDesktop.webp');
+    );
 }
 
 .lista{
