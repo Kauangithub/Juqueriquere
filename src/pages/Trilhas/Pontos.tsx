@@ -1,40 +1,55 @@
 import { useState } from 'react';
 import data from '../../data.json';
 import Select from '../../components/ui/form/Select.tsx';
-import CardTrilha from '../../components/ui/CardTrilha.tsx';
-import type Trilha from './TrilhaInfo';
+import CardPonto from '../../components/ui/CardPonto.tsx';
 
-export default function Trilhas() {
+
+export default function Pontos() {
     const order = {
         "Nome A-Z": (a: any, b: any) => a.nome.localeCompare(b.nome),
         "Nome Z-A": (a: any, b: any) => b.nome.localeCompare(a.nome),
     } as const;
 
-    type OrderKey = keyof typeof order;
-    
-    const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
-    const trilhas = [...data.trilhas].sort(order[orderKey]) as Trilha[]; // Asserção de tipo para garantir que temos um array de Trilha
 
-    const trilhasList = trilhas.map((trilha) => (
-        <CardTrilha key={trilha.id} trilha={trilha}/>
-    ));
+    type OrderKey = keyof typeof order;
+
+
+    const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
+
+
+    const pontosList = data.trilhas.flatMap((trilha, trilhaIndex) =>
+    trilha.pontos_interesse.map((ponto, pontoIndex) => (
+        <CardPonto
+            key={`${trilhaIndex}-${pontoIndex}`}
+            ponto={ponto}
+            trilha={trilha.nome}
+        />
+    ))
+);
+
+
+
 
     return (
         <>
             <div className="paddingHeader" id='paddingImgFade'></div>
             <section>
                 <div className="conteudo vertical">
-                    <div className="img-fade" id="capivara"></div>
+                    <div className='img-fade' id='capivara'></div>
                     <div className="info vertical gap5">
-                        <h1>Trilhas</h1>                        
-                        <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
+                        <h1>Pontos</h1>
+                        <p>
+							Descubra as espécies nativas do parque e aprenda mais sobre os seres que habitam esse espaço.
+						</p>
                     </div>
 
+
                     <div className="lista vertical">
-                        <h3>Todas as Trilhas:</h3>
-                        
+                        <h3>Todos os Pontos:</h3>
+
+
                         <div className='horizontal' id='filtros'>
-                            <p>Exibindo {trilhasList.length} trilhas</p>
+                            <p>Exibindo {pontosList.length} pontos</p>
                             <div className="horizontal gap5">
                                 <p>Ordenar por: </p>
                                 <Select
@@ -46,9 +61,14 @@ export default function Trilhas() {
                                     style='none'
                                 />
                             </div>
+
+
                         </div>
-                        {trilhasList}
+                        {pontosList}
                     </div>
+                       
+
+
                 </div>
             </section>
         </>
