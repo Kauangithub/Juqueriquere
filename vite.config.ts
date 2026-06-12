@@ -9,7 +9,7 @@ export default defineConfig({
     registerType: 'autoUpdate',
 
     includeAssets: [
-      '**/*.webp',
+      '**/*.png',
       '**/*.jpg',
       '**/*.jpeg',
       '**/*.svg',
