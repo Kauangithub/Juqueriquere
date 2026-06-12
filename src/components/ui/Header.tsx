@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Scanner from '../Scanner';
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import SimpleButton from './buttons/SimpleButton';

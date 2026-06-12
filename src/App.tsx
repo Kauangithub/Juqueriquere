@@ -7,16 +7,21 @@ import ScrollToTop from "./components/Scroll.tsx";
 import Trilha from './pages/Trilhas/Trilha.tsx';
 import NotFound from './pages/NotFound.tsx';
 import Trilhas from "./pages/Trilhas/Trilhas.tsx";
+import Pontos from "./pages/Trilhas/Pontos.tsx";
 import Sobre from "./pages/Sobre.tsx";
 import Mapa from "./pages/Mapa.tsx";
 import Explorar from "./pages/Explorar.tsx";
+import Admin from "./pages/Admin.tsx";
+import AdminTrilhas from "./pages/Admin/AdminTrilhas.tsx";
+import AdminPontos from "./pages/Admin/AdminPontos.tsx";
+import AdminSobre from "./pages/Admin/AdminSobre.tsx";
 
 import Header from './components/ui/Header.tsx';
 import Footer from "./components/ui/Footer.tsx";
 import SimpleButton from "./components/ui/buttons/SimpleButton.tsx";
 import Scanner from "./components/Scanner.tsx";
 
-import Logo from './assets/logo.png';
+import Logo from './assets/logo.webp';
 
 function PageTransition({ children }: { children: React.ReactNode }) {
 	return (
@@ -94,14 +99,14 @@ const HomePage = () => {
 					</div>
 					
 					<div className="carrosselCard vertical gap5" id="especies">
-						<h1>Espécies Nativas</h1>
+						<h1>Pontos de Interesse</h1>
 
 						<p>
 							Descubra as espécies nativas do parque e aprenda mais sobre os seres que habitam esse espaço.
 						</p>
 
 						<SimpleButton path="/pontos" raio="10">
-							Ir para Espécies Nativas
+							Ir para Pontos de Interesse
 						</SimpleButton>
 					</div>
 					{/*}
@@ -169,6 +174,14 @@ function AnimatedRoutes() {
 							}
 						/>
 						<Route
+							path="/pontos/"
+							element={
+								<PageTransition>
+									<Pontos />
+								</PageTransition>
+							}
+						/>
+						<Route
 							path="/trilha/:id"
 							element={
 								<PageTransition>
@@ -181,6 +194,38 @@ function AnimatedRoutes() {
 							element={
 								<PageTransition>
 									<Explorar />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/admin"
+							element={
+								<PageTransition>
+									<Admin />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/admin/trilhas"
+							element={
+								<PageTransition>
+									<AdminTrilhas />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/admin/pontos"
+							element={
+								<PageTransition>
+									<AdminPontos />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/admin/sobre"
+							element={
+								<PageTransition>
+									<AdminSobre />
 								</PageTransition>
 							}
 						/>

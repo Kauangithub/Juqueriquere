@@ -36,10 +36,10 @@ header{
             cursor: pointer;
         }
 
-        #scanner{background-image: url(../../assets/icons/qr_code_scanner.png);}
-        #menu{background-image: url(../../assets/icons/Menu.png);}
-        #scanner:hover{background-image: url(../../assets/icons/QR-hover.png);}
-        #menu:hover{background-image: url(../../assets/icons/Menu-hover.png);}
+        #scanner{background-image: url(../../assets/icons/qr_code_scanner.webp);}
+        #menu{background-image: url(../../assets/icons/Menu.webp);}
+        #scanner:hover{background-image: url(../../assets/icons/QR-hover.webp);}
+        #menu:hover{background-image: url(../../assets/icons/Menu-hover.webp);}
         .navBtn:hover{background-color: var(--verdeClaro);}
         
 

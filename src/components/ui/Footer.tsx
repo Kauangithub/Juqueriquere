@@ -1,4 +1,4 @@
-import meioAmbiente from "../../assets/meioAmbiente.png";
+import meioAmbiente from "../../assets/meioAmbiente.webp";
 import './Footer.css';
 
 export default function Footer(){
