@@ -1,0 +1,6 @@
+.card{
+    background-color: var(--verdeClaro);
+    h2{
+        color: var(--verdeEscuro);
+    }
+}
