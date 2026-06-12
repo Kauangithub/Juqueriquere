@@ -44,6 +44,24 @@ export default function Header() {
                 </Link>
 
                 <nav className="horizontal">
+                    <SimpleButton
+                        path='/'
+                        tema='none'
+                        icon='Home'
+                    />
+
+                    <SimpleButton
+                        path='/explorar/'
+                        tema='none'
+                        icon='Explorar'
+                    />
+
+                    <SimpleButton
+                        path='/sobre'
+                        tema='none'
+                        icon='Sobre'
+                    />
+
                     <div
                         className="navBtn"
                         id="scanner"

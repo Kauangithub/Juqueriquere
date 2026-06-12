@@ -40,7 +40,7 @@ export default function Explorar() {
     return (
         <>
             <div className="paddingHeader"></div>
-            <section className="conteudo vertical gap30">
+            <section className="conteudo vertical gap30" id='explorar'>
                 
                 <div className="mapa">
                     {/* Repasse o array de IDs (trilha + ramais) e garanta que o onClick atualize o estado da trilha principal */}
@@ -50,36 +50,36 @@ export default function Explorar() {
                     />
                 </div>
 
-                <div className="vertical gap5">
-                    <h1>Trilhas</h1>
-                    <DraggableCarousel 
-                        items={trilhasList}
-                        activeId={trilhaSelecionada}
-                        onChange={(id) => setTrilhaSelecionada(Number(id))}
-                    />
-                    <SimpleButton path='/trilhas'>Todas as Trilhas</SimpleButton>
-                </div>
-
                 <div className="vertical gap15">
                     <div className="vertical gap5">
-                        <h1>Pontos de interesse</h1>
-                        <div className="horizontal gap5 scroll">
-                            {trilhas.map((trilha) => (
-                                <button
-                                    key={trilha.id}
-                                    onClick={() => setTrilhaSelecionada(trilha.id)}
-                                    className={trilhaSelecionada === trilha.id ? 'ativo' : ''}
-                                >
-                                    {trilha.nome}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="vertical gap5">
-                            {pontosList}
-                        </div>
+                        <h1>Trilhas</h1>
+                        <DraggableCarousel
+                            items={trilhasList}
+                            activeId={trilhaSelecionada}
+                            onChange={(id) => setTrilhaSelecionada(Number(id))}
+                        />
+                        <SimpleButton path='/trilhas'>Todas as Trilhas</SimpleButton>
                     </div>
-                    <SimpleButton path='/pontos'>Todos os Pontos de Interesse</SimpleButton>
-
+                    <div className="vertical gap15">
+                        <div className="vertical gap5">
+                            <h1>Pontos de interesse</h1>
+                            <div className="horizontal gap5 scroll">
+                                {trilhas.map((trilha) => (
+                                    <button
+                                        key={trilha.id}
+                                        onClick={() => setTrilhaSelecionada(trilha.id)}
+                                        className={trilhaSelecionada === trilha.id ? 'ativo' : ''}
+                                    >
+                                        {trilha.nome}
+                                    </button>
+                                ))}
+                            </div>
+                            <div className="vertical gap5" id='pontosList'>
+                                {pontosList}
+                            </div>
+                        </div>
+                        <SimpleButton path='/pontos'>Todos os Pontos de Interesse</SimpleButton>
+                    </div>
                 </div>
             </section>
         </>

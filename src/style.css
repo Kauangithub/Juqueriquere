@@ -71,14 +71,13 @@ section{
 }
 
 body{
-    background-color: var(--verdeEscuro);
-    background: linear-gradient(173deg,rgba(0, 138, 102, 1) 0%, rgba(65, 181, 150, 1) 50%, rgba(0, 138, 102, 1) 100%);
     overflow-x: hidden;
     gap: 15px;
     scroll-behavior: smooth;
 }
 #root{
     overflow-x: hidden;
+    background: linear-gradient(173deg,rgba(0, 138, 102, 1) 0%, rgba(65, 181, 150, 1) 50%, rgba(0, 138, 102, 1) 100%);
 }
 
 .paddingHeader{
@@ -219,6 +218,7 @@ option:checked {
 .mapa, .mapaInterativo{
     width: 100%;
     aspect-ratio: 1/1;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -387,6 +387,13 @@ ul{
 }
 .linhaVertical{min-height: 100%;width: 1px !important;border-right: 1px solid var(--verdeClaro);}
 
+/*--  --*/
+.listaGrid{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 @media (width > 850px) {
     body{
         padding-top: 0;
@@ -413,7 +420,7 @@ ul{
     #capivara{
         background-image: url(./assets/img/CapivaraDesktop.webp);
     }
-    .carrossel{
+    #CarrosselInicio{
         flex-direction: column;
         margin: 0;
         padding: 0;
@@ -435,8 +442,19 @@ ul{
         width: 50%;
     }
 
-    .mapa{
+    .w50{
         width: 50%;
-        height: fit-content;
+    }
+
+    .listaGrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .desktopWrap{
+        flex-direction: row;
+        > *{
+            width: 100%;
+        }
     }
 }

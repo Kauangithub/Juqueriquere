@@ -86,7 +86,7 @@
     transition: all 0.35s ease-in-out;
 }
 .children.open {
-    max-height: 500px;
+    max-height: 800px;
     opacity: 1;
     transform: translateY(0);
 }

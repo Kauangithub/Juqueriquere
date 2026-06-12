@@ -20,5 +20,20 @@ svg:has(.path:hover) .path:not(:hover) {
   stroke-width: 20px;
 }
 
-
-
+@media (width > 850px){
+  #explorar.conteudo{
+    flex-direction: row;
+  }
+  .carrossel{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-padding: 0;
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+  #pontosList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

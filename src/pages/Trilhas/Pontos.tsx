@@ -32,7 +32,7 @@ export default function Pontos() {
 
     return (
         <>
-            <div className="paddingHeader" id='paddingImgFade'></div>
+            <div className="paddingHeader"></div>
             <section>
                 <div className="conteudo vertical">
                     <div className='img-fade' id='capivara'></div>
@@ -61,10 +61,8 @@ export default function Pontos() {
                                     style='none'
                                 />
                             </div>
-
-
                         </div>
-                        {pontosList}
+                        <div className="listaGrid">{pontosList}</div>
                     </div>
                        
 

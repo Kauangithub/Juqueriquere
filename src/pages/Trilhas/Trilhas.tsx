@@ -21,7 +21,7 @@ export default function Trilhas() {
 
     return (
         <>
-            <div className="paddingHeader" id='paddingImgFade'></div>
+            <div className="paddingHeader"></div>
             <section>
                 <div className="conteudo vertical">
                     <div className="img-fade" id="capivara"></div>
@@ -47,7 +47,7 @@ export default function Trilhas() {
                                 />
                             </div>
                         </div>
-                        {trilhasList}
+                        <div className="listaGrid">{trilhasList}</div>
                     </div>
                 </div>
             </section>

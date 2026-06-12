@@ -23,7 +23,7 @@ header{
         height: 100%;
         align-items: center;
 
-        .navBtn{
+        .navBtn, .btn{
             height: 90%;
             aspect-ratio: 1/1;
             padding: 10px;
@@ -34,6 +34,14 @@ header{
             background-position: center;
             background-size: 60%;
             cursor: pointer;
+            border-radius: 100% !important;
+        }
+        .btn img{
+            width: 26px;
+            height: 26px;
+        }
+        .btn:hover{
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
         #scanner{background-image: url(../../assets/icons/qr_code_scanner.webp);}
