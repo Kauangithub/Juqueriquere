@@ -3,6 +3,7 @@ import data from '../../data.json';
 import Select from '../../components/ui/form/Select.tsx';
 import CardTrilha from '../../components/ui/CardTrilha.tsx';
 import type Trilha from './TrilhaInfo';
+import { createPortal } from "react-dom";
 
 export default function Trilhas() {
     const order = {
@@ -11,9 +12,15 @@ export default function Trilhas() {
     } as const;
 
     type OrderKey = keyof typeof order;
-    
+
     const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
-    const trilhas = [...data.trilhas].sort(order[orderKey]) as Trilha[]; // Asserção de tipo para garantir que temos um array de Trilha
+    const [search, setSearch] = useState("");
+
+    const trilhas = [...data.trilhas]
+        .filter((trilha) =>
+            trilha.nome.toLowerCase().includes(search.toLowerCase())
+        )
+        .sort(order[orderKey]) as Trilha[];
 
     const trilhasList = trilhas.map((trilha) => (
         <CardTrilha key={trilha.id} trilha={trilha}/>
@@ -21,36 +28,56 @@ export default function Trilhas() {
 
     return (
         <>
+            {createPortal(
+                <div className="horizontal gap5" id="filtros">
+
+                    <div className="pesquisa horizontal">
+                        <div className="pesquisaIcon"></div>
+                        <input
+                            type="text"
+                            placeholder="Pesquisar trilha..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
+
+                    <Select
+                        options={Object.keys(order)}
+                        onChange={(newValue) => {
+                            setOrderKey(newValue as OrderKey);
+                        }}
+                        value={orderKey}
+                        style='none'
+                    />
+
+                </div>,
+                document.body
+            )}
+
             <div className="paddingHeader"></div>
+
             <section>
                 <div className="conteudo vertical">
                     <div className="img-fade" id="capivara"></div>
+
                     <div className="info vertical gap5">
                         <h1>Trilhas</h1>                        
                         <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
                     </div>
 
                     <div className="lista vertical">
-                        <h3>Todas as Trilhas:</h3>
+                        <p>{trilhasList.length} trilhas encontradas.</p>
+
                         
-                        <div className='horizontal' id='filtros'>
-                            <p>Exibindo {trilhasList.length} trilhas</p>
-                            <div className="horizontal gap5">
-                                <p>Ordenar por: </p>
-                                <Select
-                                    options={Object.keys(order)}
-                                    onChange={(newValue) => {
-                                        setOrderKey(newValue as OrderKey);
-                                    }}
-                                    value={orderKey}
-                                    style='none'
-                                />
-                            </div>
+
+                        <div className="listaGrid">
+                            {trilhasList}
                         </div>
-                        <div className="listaGrid">{trilhasList}</div>
+
                     </div>
                 </div>
             </section>
+        
         </>
     );
 }

@@ -205,14 +205,72 @@ option:checked {
     font-weight: bold;
 }
 
+
+#filtros{
+    position: fixed !important;
+    bottom: 100px;
+    left: 5vw;
+    width: 90vw;
+    justify-content: space-between;
+ 
+    align-items: center;
+
+    .horizontal{
+        align-items: center;
+    }
+
+    .select-button{
+        background-color: var(--headerBackground);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--verdeClaroTransparente);
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        height: 40px;
+    }
+}
+
+.pesquisa{
+    flex: 1;
+    min-width: 0;
+    background-color: var(--headerBackground);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(203, 255, 241, 0.7);
+    color: var(--verdeClaro);
+    padding: 0 15px;
+    border-radius: 20px;
+    height: 40px;
+    
+    .pesquisaIcon{
+        width: 24px;
+        height: 24px;
+        background-image: url(assets/icons/Search.webp);
+        background-size: cover;
+    }
+    input{
+        flex: 1;
+        min-width: 0;
+        font-size: 16px;
+        background-color: transparent;
+        padding: 10px;
+        border: 0;
+    }
+    input::placeholder{
+        color: var(--verdeClaroTransparente);
+    }
+    input:focus{
+        outline: 0;
+        border: 0;
+    }
+}
+
 .pontosTrilha{
     gap: 15px;
     h1{color: var(--verdeEscuro);}
 
     .btn-dark{width: 100%; border-radius: 10px;}
-}
-.back{
-    transform: scaleX(-1);
 }
 
 .mapa, .mapaInterativo{
@@ -247,18 +305,6 @@ option:checked {
         fill-opacity: 0.5;
     }
 
-}
-
-
-#filtros{
-    width: 100%;
-    justify-content: space-between;
- 
-    align-items: center;
-
-    .horizontal{
-        align-items: center;
-    }
 }
 
 .linhaPontilhadaDark{

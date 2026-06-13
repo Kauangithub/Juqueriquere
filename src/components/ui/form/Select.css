@@ -31,34 +31,42 @@
     transition: 0.2s;
 }
 
-.select-button:has(.arrow.rotate){
-    background-color: var(--headerBackground);
-    backdrop-filter: blur(20px);
-    border-radius: 10px 10px 0 0;
-}
 .arrow.rotate {
     transform: rotate(180deg);
 }
 
 .select-options {
+    padding: 0;
+
     position: absolute;
-    top: 100%;
+
+    bottom: 100%;
     left: 0;
+
     width: 100%;
+
     background: var(--headerBackground);
     backdrop-filter: blur(10px);
-    border-radius: 0 0 10px 10px;
+
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
     z-index: 100;
     animation: fadeIn 0.3s ease;
     font-family: Inter, Arial, Helvetica, sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
+
+.select-button:has(.arrow.rotate){
+    border-radius: 0 0 20px 20px !important;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-50%);
+        transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -66,8 +74,12 @@
 }
 
 .select-options li {
+    margin: 0;
+
     padding: 12px 14px;
+
     cursor: pointer;
+
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 
     transition: 0.15s;
@@ -76,6 +88,7 @@
 .select-options li.active {
     background-color: var(--verdeClaroTransparente);
     color: var(--verdeEscuro);
+
     font-weight: bold;
 }
 

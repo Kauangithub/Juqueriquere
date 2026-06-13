@@ -2,6 +2,7 @@ import { useState } from 'react';
 import data from '../../data.json';
 import Select from '../../components/ui/form/Select.tsx';
 import CardPonto from '../../components/ui/CardPonto.tsx';
+import { createPortal } from "react-dom";
 
 
 export default function Pontos() {
@@ -10,65 +11,114 @@ export default function Pontos() {
         "Nome Z-A": (a: any, b: any) => b.nome.localeCompare(a.nome),
     } as const;
 
-
     type OrderKey = keyof typeof order;
 
 
     const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
+    const [search, setSearch] = useState("");
+
+    const getNomePonto = (ponto: any) => {
+        return String(Object.values(ponto)[0] ?? "");
+    };
+
+    const pontos = data.trilhas.flatMap((trilha) =>
+        trilha.pontos_interesse.map((ponto) => ({
+            ponto,
+            trilha: trilha.nome
+        }))
+    );
+
+    const pontosFiltrados = pontos
+        .filter((item) =>
+            getNomePonto(item.ponto)
+                .toLowerCase()
+                .includes(search.toLowerCase())
+        )
+        .sort((a, b) =>
+            order[orderKey](
+                {
+                    nome: getNomePonto(a.ponto)
+                },
+                {
+                    nome: getNomePonto(b.ponto)
+                }
+            )
+        );
 
 
-    const pontosList = data.trilhas.flatMap((trilha, trilhaIndex) =>
-    trilha.pontos_interesse.map((ponto, pontoIndex) => (
+    const pontosList = pontosFiltrados.map((item, index) => (
         <CardPonto
-            key={`${trilhaIndex}-${pontoIndex}`}
-            ponto={ponto}
-            trilha={trilha.nome}
+            key={index}
+            ponto={item.ponto}
+            trilha={item.trilha}
         />
-    ))
-);
-
-
-
+    ));
 
     return (
         <>
+            {createPortal(
+                <div className="horizontal gap5" id="filtros">
+
+                    <div className="pesquisa horizontal">
+                        <div className="pesquisaIcon"></div>
+
+                        <input
+                            type="text"
+                            placeholder="Pesquisar ponto..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
+
+
+                    <Select
+                        options={Object.keys(order)}
+                        onChange={(newValue) => {
+                            setOrderKey(newValue as OrderKey);
+                        }}
+                        value={orderKey}
+                        style="none"
+                    />
+
+                </div>,
+                document.body
+            )}
+
+
             <div className="paddingHeader"></div>
+
+
             <section>
                 <div className="conteudo vertical">
-                    <div className='img-fade' id='capivara'></div>
+
+                    <div className="img-fade" id="capivara"></div>
+
+
                     <div className="info vertical gap5">
                         <h1>Pontos</h1>
+
                         <p>
-							Descubra as espécies nativas do parque e aprenda mais sobre os seres que habitam esse espaço.
-						</p>
+                            Descubra as espécies nativas do parque e aprenda mais sobre os seres que habitam esse espaço.
+                        </p>
                     </div>
 
 
                     <div className="lista vertical">
-                        <h3>Todos os Pontos:</h3>
+
+                        <p>
+                            {pontosList.length} pontos encontrados.
+                        </p>
 
 
-                        <div className='horizontal' id='filtros'>
-                            <p>Exibindo {pontosList.length} pontos</p>
-                            <div className="horizontal gap5">
-                                <p>Ordenar por: </p>
-                                <Select
-                                    options={Object.keys(order)}
-                                    onChange={(newValue) => {
-                                        setOrderKey(newValue as OrderKey);
-                                    }}
-                                    value={orderKey}
-                                    style='none'
-                                />
-                            </div>
+                        <div className="listaGrid">
+                            {pontosList}
                         </div>
-                        <div className="listaGrid">{pontosList}</div>
-                    </div>
-                       
 
+                    </div>
 
                 </div>
             </section>
+
         </>
     );
 }

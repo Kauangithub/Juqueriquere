@@ -40,17 +40,20 @@ export default function Explorar() {
     return (
         <>
             <div className="paddingHeader"></div>
-            <section className="conteudo vertical gap30" id='explorar'>
+            <section className="conteudo vertical gap30 desktopWrap">
                 
-                <div className="mapa">
-                    {/* Repasse o array de IDs (trilha + ramais) e garanta que o onClick atualize o estado da trilha principal */}
-                    <TrilhasMap 
-                        highlight={highlightIds} 
-                        onClick={(trailId, _ramalId) => setTrilhaSelecionada(trailId)}
-                    />
+                <div className="vertical gap5">
+                    <h1>Mapa geral do Parque</h1>
+                    <div className="mapa">
+                        {/* Repasse o array de IDs (trilha + ramais) e garanta que o onClick atualize o estado da trilha principal */}
+                        <TrilhasMap
+                            highlight={highlightIds}
+                            onClick={(trailId, _ramalId) => setTrilhaSelecionada(trailId)}
+                        />
+                    </div>
                 </div>
 
-                <div className="vertical gap15">
+                <div className="vertical gap30">
                     <div className="vertical gap5">
                         <h1>Trilhas</h1>
                         <DraggableCarousel

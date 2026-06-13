@@ -31,7 +31,7 @@ export default function Trilha() {
             <div className="paddingHeader"></div>
             <section className='vertical conteudo desktopWrap'>
                 <div className="w50 vertical gap15">
-                    <SimpleButton path="/explorar/" type='back'>Voltar para Mapa</SimpleButton>
+                    <SimpleButton path="/explorar/" type='back' icon='setaBack'>Voltar para Mapa</SimpleButton>
                     <div className="mapa">
                         {<TrilhasMap highlight={id} id={[id]}></TrilhasMap>}
                     </div>

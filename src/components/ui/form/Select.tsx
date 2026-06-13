@@ -47,7 +47,7 @@ export default function Select({
             >
                 {value}
                 <span className={`arrow ${open ? "rotate" : ""}`}>
-                    ▾
+                    ▴
                 </span>
             </button>
 

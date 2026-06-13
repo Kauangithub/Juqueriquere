@@ -25,17 +25,16 @@ header{
 
         .navBtn, .btn{
             height: 90%;
-            aspect-ratio: 1/1;
             padding: 10px;
             display: flex;
-            border-radius: 100%;
+            border-radius: 20px;
             transition: .3s ease-in-out;
             background-repeat: no-repeat;
             background-position: center;
             background-size: 60%;
             cursor: pointer;
-            border-radius: 100% !important;
         }
+        .navBtn{aspect-ratio: 1/1;}
         .btn img{
             width: 26px;
             height: 26px;

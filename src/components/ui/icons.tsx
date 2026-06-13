@@ -1,5 +1,7 @@
 import seta         from '../../assets/icons/seta1.webp';
 import setaDark     from '../../assets/icons/seta12.webp';
+import setaBackLight     from '../../assets/icons/setaBackLight.webp';
+import setaBackDark     from '../../assets/icons/setaBackDark.webp';
 import QRDark       from '../../assets/icons/qr_code_scanner.webp';
 import QR           from '../../assets/icons/QR-hover.webp';
 import home         from '../../assets/icons/Home.webp';
@@ -18,6 +20,7 @@ import TempoDark        from '../../assets/icons/Tempo.webp';
 export const icons = {
         "default": {
             "seta"          : seta,
+            "setaBack"      : setaBackDark,
             "QR"            : QR,
             "Home"          : home,
             "Menu"          : menu,
@@ -30,6 +33,7 @@ export const icons = {
         },
         "dark": {
             "seta"          : setaDark,
+            "setaBack"      : setaBackLight,
             "QR"            : QRDark,
             "Home"          : home,
             "Menu"          : menu,
@@ -42,6 +46,7 @@ export const icons = {
         },
          "none": {
             "seta"          : setaDark,
+            "setaBack"      : setaBackLight,
             "QR"            : QRDark,
             "Home"          : home,
             "Menu"          : menu,

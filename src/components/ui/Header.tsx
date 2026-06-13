@@ -48,19 +48,22 @@ export default function Header() {
                         path='/'
                         tema='none'
                         icon='Home'
-                    />
+                        type='back'
+                    >Início</SimpleButton>
 
                     <SimpleButton
                         path='/explorar/'
                         tema='none'
                         icon='Explorar'
-                    />
+                        type='back'
+                    >Explorar</SimpleButton>
 
                     <SimpleButton
                         path='/sobre'
                         tema='none'
                         icon='Sobre'
-                    />
+                        type='back'
+                    >Início</SimpleButton>
 
                     <div
                         className="navBtn"
