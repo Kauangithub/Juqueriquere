@@ -6,7 +6,7 @@ export default function Admin() {
         <>
             <div className="paddingHeader"></div>
             <section className="conteudo vertical gap15" id="adminHome">
-                <SimpleButton path="/admin/" type='back'>Voltar para Mapa</SimpleButton>
+                <SimpleButton path="/admin/" type='back' icon="setaBack">Voltar</SimpleButton>
                 
                 <div className="card vertical gap5">
                     <h2>Trilhas</h2>

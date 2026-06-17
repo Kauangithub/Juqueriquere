@@ -4,3 +4,17 @@
         color: var(--verdeEscuro);
     }
 }
+
+.form{
+    label{
+        color: var(--verdeEscuro);
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+}
+
+.cardTrilhaCompacto{
+    h3{
+        color: var(--verdeEscuro);
+    }
+}

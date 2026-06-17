@@ -115,6 +115,9 @@ export default function Menu({ ativo, onChoice }: menuProps) {
 
                         </div>
                     </div>
+                    
+                    {/* Acesso Temporário */}
+                    <SimpleButton path='/admin' raio='10'>Administração do Site</SimpleButton>
                 </div>
             </div>
         </div>
