@@ -47,13 +47,6 @@ export default function Trilha() {
                         onChange={(newValue) => setHl([options[newValue] as string])}
                         value={Object.keys(options).find(key => options[key] == hl) || Object.keys(options)[0]}
                         ></Switch>)}
-                        
-                        
-                         {/*optionsList.length > 1 && (
-                                    <div>
-                                        {optionsList}
-                                    </div>
-                                )*/}
                         <TrilhasMap highlight={hl} id={[id]}></TrilhasMap>
                     </div>
                 </div>
