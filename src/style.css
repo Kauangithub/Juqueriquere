@@ -295,15 +295,18 @@ option:checked {
     aspect-ratio: 1/1;
     height: fit-content;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--verdeClaro);
     border-radius: 20px;
     overflow: hidden;
+    padding: 10px;
 
     p{
         color: var(--texto);
     }
+
 }
 .mapaInterativo{
     width: 55%;
