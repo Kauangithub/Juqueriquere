@@ -42,20 +42,15 @@ export default function Trilha() {
                 <div className="vertical gap15">
                     <SimpleButton path="/explorar/" type='back' icon='setaBack'>Voltar para Mapa</SimpleButton>
                     <div className="mapa">
-                        {trilha.ramais && trilha.ramais.length > 0 && (<Switch
-                        options={Object.keys(options)}
-                        onChange={(newValue) => setHl([options[newValue] as string])}
-                        value={Object.keys(options).find(key => options[key] == hl) || Object.keys(options)[0]}
-                        ></Switch>)}
-                        
-                        
-                         {/*optionsList.length > 1 && (
-                                    <div>
-                                        {optionsList}
-                                    </div>
-                                )*/}
-                        <TrilhasMap highlight={hl} id={[id]}></TrilhasMap>
+                        <TrilhasMap highlight={hl} id={[id]} />
                     </div>
+                    {trilha.ramais && trilha.ramais.length > 0 && (
+                        <Switch
+                            options={Object.keys(options)}
+                            onChange={(newValue) => setHl([options[newValue] as string])}
+                            value={Object.keys(options).find(key => options[key] == hl) || Object.keys(options)[0]}
+                        />
+                    )}
                 </div>
                 <div className="vertical gap15">
                     <div className='vertical gap5'>
