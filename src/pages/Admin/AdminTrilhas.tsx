@@ -71,6 +71,16 @@ export default function AdminTrilhas() {
                         className="horizontal gap5"
                         id="filtros"
                     >
+
+                        <Select
+                            options={Object.keys(order)}
+                            value={orderKey}
+                            onChange={(value) =>
+                                setOrderKey(value as OrderKey)
+                            }
+                            style="none"
+                        />
+                        
                         <div className="pesquisa horizontal">
 
                             <div className="pesquisaIcon"></div>
@@ -86,20 +96,13 @@ export default function AdminTrilhas() {
 
                         </div>
 
-                        <Select
-                            options={Object.keys(order)}
-                            value={orderKey}
-                            onChange={(value) =>
-                                setOrderKey(value as OrderKey)
-                            }
-                            style="none"
-                        />
-
-                        <SimpleButton
-                            path="/admin/trilhas/cadastrar"
-                        >
-                            + Nova
-                        </SimpleButton>
+                        <div className="circleButton">
+                            <SimpleButton
+                                path="/admin/trilhas/cadastrar"
+                                icon="Plus"
+                            >
+                            </SimpleButton>
+                        </div>
 
                     </div>,
                     document.body

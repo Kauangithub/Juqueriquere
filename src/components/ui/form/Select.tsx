@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import './Select.css';
+import SimpleButton from "../buttons/SimpleButton";
 interface SelectProps {
     children?: React.ReactNode;
     options: string[];
@@ -40,16 +41,12 @@ export default function Select({
         <div className="custom-select" ref={selectRef}>
             {children}
 
-            <button
-                type="button"
-                className="select-button"
-                onClick={() => setOpen(!open)}
-            >
-                {value}
-                <span className={`arrow ${open ? "rotate" : ""}`}>
-                    ▴
-                </span>
-            </button>
+            <div className="circleButton">
+                <SimpleButton
+                    onClick={() => setOpen(!open)}
+                    icon="Filter"
+                ></SimpleButton>
+            </div>
 
             {open && (
                 <ul className="select-options">
