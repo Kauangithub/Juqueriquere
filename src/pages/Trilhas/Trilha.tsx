@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import data from '../../data.json';
 import NotFound from '../NotFound';
 import type TrilhaType from './TrilhaInfo';
@@ -7,6 +8,7 @@ import TrilhasMap from '../../components/ui/TrilhasMap';
 import DraggableCarousel from '../../components/ui/DraggableCarousel.tsx';
 import { icons } from '../../components/ui/icons';
 import CardPonto from '../../components/ui/CardPonto';
+import Switch from '../../components/ui/buttons/Switch.tsx';
 
 export default function Trilha() {
     const { Distancia, Tempo, Dificuldade } = icons.default;
@@ -24,7 +26,13 @@ export default function Trilha() {
             trilha={trilha.nome}
         />
     ));
-
+    const [hl, setHl] = useState([id]) as unknown as [number | string | (number | string)[], (id: number | string | (number | string)[]) => void];
+    const options = {
+    "Mapa completo" : id,
+    ...Object.fromEntries(trilha.ramais.map(r => [r.nome, r.id]))
+    } as Record<string, number | string>    ;
+    
+    
 
     return (
         <>
@@ -33,13 +41,24 @@ export default function Trilha() {
                 <div className="w50 vertical gap15">
                     <SimpleButton path="/explorar/" type='back' icon='setaBack'>Voltar para Mapa</SimpleButton>
                     <div className="mapa">
-                        {<TrilhasMap highlight={id} id={[id]}></TrilhasMap>}
+                        <Switch
+                        options={Object.keys(options)}
+                        onChange={(newValue) => setHl([options[newValue] as string])}
+                        value={Object.keys(options).find(key => options[key] == hl) || Object.keys(options)[0]}
+                        ></Switch>
+                        
+                         {/*optionsList.length > 1 && (
+                                    <div>
+                                        {optionsList}
+                                    </div>
+                                )*/}
+                        <TrilhasMap highlight={hl} id={[id]}></TrilhasMap>
                     </div>
                 </div>
-
                         <div className="vertical gap15 w50">
                             <div className='vertical gap5'>
                                 <h1>{trilha.nome}</h1>
+                               
                                 <p>{trilha.descricao_curta}</p>
                             </div>
                             <div className="horizontal destaquesTrilha">

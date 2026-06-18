@@ -111,7 +111,7 @@ export default function Map({ id, onHover, onClick, onLeave, highlight }: MapPro
     if (trailId && highlights.includes(trailId)) {
       // Opcional: Se você quiser que destacar a trilha principal também destaque seus ramais, deixe apenas "return true;"
       // Se quiser que destacar a trilha principal NÃO destaque o ramal, adicione: if (ramalId) return false;
-      if (ramalId) return false;
+      //if (ramalId) return false;
       return true; 
     }
 

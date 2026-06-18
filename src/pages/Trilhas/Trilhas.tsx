@@ -21,9 +21,13 @@ export default function Trilhas() {
             trilha.nome.toLowerCase().includes(search.toLowerCase())
         )
         .sort(order[orderKey]) as Trilha[];
-
+    
     const trilhasList = trilhas.map((trilha) => (
-        <CardTrilha key={trilha.id} trilha={trilha}/>
+        <CardTrilha
+            id={trilha.id} 
+            key={trilha.id}
+            trilha={trilha}
+        />
     ));
 
     return (
