@@ -29,53 +29,56 @@ export default function Trilha() {
     return (
         <>
             <div className="paddingHeader"></div>
-            <section className='vertical conteudo desktopWrap'>
-                <div className="w50 vertical gap15">
+
+            <section className='conteudo desktopWrap'>
+
+                <div className="vertical gap15">
                     <SimpleButton path="/explorar/" type='back' icon='setaBack'>Voltar para Mapa</SimpleButton>
                     <div className="mapa">
                         {<TrilhasMap highlight={id} id={[id]}></TrilhasMap>}
                     </div>
                 </div>
 
-                        <div className="vertical gap15 w50">
-                            <div className='vertical gap5'>
-                                <h1>{trilha.nome}</h1>
-                                <p>{trilha.descricao_curta}</p>
+                <div className="vertical gap15">
+                    <div className='vertical gap5'>
+                        <h1>{trilha.nome}</h1>
+                        <p>{trilha.descricao_curta}</p>
+                    </div>
+                    <div className="horizontal destaquesTrilha">
+                        <div className="vertical gap5">
+                            <div className="horizontal gap5">
+                                <img src={Distancia}/>
+                                <p>Distância</p>
                             </div>
-                            <div className="horizontal destaquesTrilha">
-                                <div className="vertical gap5">
-                                    <div className="horizontal gap5">
-                                        <img src={Distancia}/>
-                                        <p>Distância</p>
-                                    </div>
-                                    <p>{trilha.extensao}</p>
-                                </div>
-                                <div className="linhaVertical"></div>
-                                <div className="vertical gap5">
-                                    <div className="horizontal gap5">
-                                        <img src={Tempo}/>
-                                        <p>Duração</p>
-                                    </div>
-                                    <p>{trilha.duracao}</p>
-                                </div>
-                                <div className="linhaVertical"></div>
-                                <div className="vertical gap5">
-                                    <div className="horizontal gap5">
-                                        <img src={Dificuldade}/>
-                                        <p>Dificuldade</p>
-                                    </div>
-                                    <p>{trilha.dificuldade}</p>
-                                </div>
-                            </div>
-                            <div className="vertical gap5">
-                                <h1>Descrição</h1>
-                                <p>{trilha.descricao}</p>
-                            </div>
-                            <div className="vertical gap5">
-                                <h1>Pontos de Interesse</h1>
-                                <DraggableCarousel items={pontosList}/>
-                            </div>
+                            <p>{trilha.extensao}</p>
                         </div>
+                        <div className="linhaVertical"></div>
+                        <div className="vertical gap5">
+                            <div className="horizontal gap5">
+                                <img src={Tempo}/>
+                                <p>Duração</p>
+                            </div>
+                            <p>{trilha.duracao}</p>
+                        </div>
+                        <div className="linhaVertical"></div>
+                        <div className="vertical gap5">
+                            <div className="horizontal gap5">
+                                <img src={Dificuldade}/>
+                                <p>Dificuldade</p>
+                            </div>
+                            <p>{trilha.dificuldade}</p>
+                        </div>
+                    </div>
+                    <div className="vertical gap5">
+                        <h1>Descrição</h1>
+                        <p>{trilha.descricao}</p>
+                    </div>
+                    <div className="vertical gap5">
+                        <h1>Pontos de Interesse</h1>
+                        <DraggableCarousel items={pontosList}/>
+                    </div>
+                </div>
+                
             </section>
         </>
     )
