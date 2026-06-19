@@ -15,27 +15,27 @@
       "atencao": "Solo escorregadio em períodos úmidos, presença de raízes expostas, pequenos declives, espinhos e possibilidade de animais peçonhentos.",
       "pontos_interesse": [
         {
-          "planta": "Ingá",
+          "nome": "Ingá",
           "latitude": "",
           "longitude": ""
         },
         {
-          "planta": "Brejaúva",
+          "nome": "Brejaúva",
           "latitude": "",
           "longitude": ""
         },
         {
-          "planta": "Jacarandá",
+          "nome": "Jacarandá",
           "latitude": "",
           "longitude": ""
         },
         {
-          "planta": "Pitanga",
+          "nome": "Pitanga",
           "latitude": "",
           "longitude": ""
         },
         {
-          "planta": "Araçá",
+          "nome": "Araçá",
           "latitude": "",
           "longitude": ""
         }
@@ -60,7 +60,7 @@
       "atencao": "Terreno escorregadio, raízes aparentes, pequenos declives e possibilidade de encontro com animais peçonhentos.",
       "pontos_interesse": [
         {
-          "planta": "Carrapeta",
+          "nome": "Carrapeta",
           "latitude": "",
           "longitude": ""
         }
@@ -94,37 +94,37 @@
       ],
       "pontos_interesse": [
         {
-          "planta": "Jerivá",
+          "nome": "Jerivá",
           "latitude": "-23.678115",
           "longitude": "-45.439887"
         },
         {
-          "planta": "Ingá",
+          "nome": "Ingá",
           "latitude": "",
           "longitude": ""
         },
         {
-          "planta": "Annona",
+          "nome": "Annona",
           "latitude": "",
           "longitude": ""
         },
         {
-          "planta": "Margaritaria nobilis",
+          "nome": "Margaritaria nobilis",
           "latitude": "-23.678591",
           "longitude": "-45.439180"
         },
         {
-          "planta": "Pariparoba Mansa",
+          "nome": "Pariparoba Mansa",
           "latitude": "-23.678105",
           "longitude": "-45.438935"
         },
         {
-          "planta": "Margaridão (Girassol-mexicano)",
+          "nome": "Margaridão (Girassol-mexicano)",
           "latitude": "-23.678680",
           "longitude": "-45.440177"
         },
         {
-          "caminho": "Bifurcação"
+          "nome": "Bifurcação"
         }
       ],
       "pontos_no_mapa": [
@@ -147,7 +147,7 @@
       "atencao": "Terreno escorregadio em períodos chuvosos, presença de insetos e animais peçonhentos.",
       "pontos_interesse": [
         {
-          "misc": "Observatório",
+          "nome": "Observatório",
           "latitude": "-23.67783",
           "longitude": "-45.439445"
         }

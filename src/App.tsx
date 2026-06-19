@@ -27,6 +27,9 @@ import Scanner from "./components/Scanner.tsx";
 
 import Logo from './assets/logo.webp';
 
+import { useSync } from "./lib/hooks/useSync.ts";
+
+
 function PageTransition({ children }: { children: React.ReactNode }) {
 	return (
 		<motion.main
@@ -138,6 +141,7 @@ const HomePage = () => {
 
 function AnimatedRoutes() {
 	const location = useLocation();
+	
 
 	return (
 		<>
@@ -266,6 +270,8 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+	useSync();
+	
 	return (
 		<Router>
 			<AnimatedRoutes />

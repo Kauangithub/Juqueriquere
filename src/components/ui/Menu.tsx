@@ -107,7 +107,7 @@ export default function Menu({ ativo, onChoice }: menuProps) {
                                         tema='dark'
                                         raio="0"
                                     >
-                                        {ponto.planta || ponto.misc || ponto.caminho}
+                                        {ponto.nome}
                                     </SimpleButton>
                                 ))
                             )}

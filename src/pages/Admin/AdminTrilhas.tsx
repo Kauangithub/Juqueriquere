@@ -1,7 +1,8 @@
-import { useState } from "react";
-import data from "../../data.json";
+import { useEffect, useState } from "react";
+import { db } from "../../lib/dexie";
 import SimpleButton from "../../components/ui/buttons/SimpleButton";
 import Select from "../../components/ui/form/Select";
+import type Trilha from "../Trilhas/TrilhaInfo";
 import { createPortal } from "react-dom";
 
 export default function AdminTrilhas() {
@@ -19,14 +20,17 @@ export default function AdminTrilhas() {
     const [modalDelete, setModalDelete] = useState(false);
     const [trilhaSelecionada, setTrilhaSelecionada] = useState<any>(null);
 
-    const trilhas = [...data.trilhas]
-        .filter((trilha) =>
-            trilha.nome
-                .toLowerCase()
-                .includes(search.toLowerCase())
-        )
-        .sort(order[orderKey])
-    ;
+    const [trilhas, setTrilhas] = useState<Trilha[]>([]);
+    
+
+    useEffect(() => {
+            async function loadData() {
+                const data = await db.trilhas.toArray();
+                setTrilhas(data as Trilha[]);
+            }
+    
+            loadData();
+        }, []);
 
     const abrirExcluir = (trilha: any) => {
         setTrilhaSelecionada(trilha);

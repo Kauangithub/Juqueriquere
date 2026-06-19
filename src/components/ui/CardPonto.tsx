@@ -1,8 +1,6 @@
 import './CardPonto.css'
 interface Ponto {
-    planta?: string;
-    Caminho?: string;
-    misc?: string;
+    nome: string;
     latitude?: string;
     longitude?: string;
 }
@@ -16,7 +14,7 @@ export default function CardPonto({ ponto, trilha: _trilha  /*Temporário*/ }: P
     return (
         <div className='cardTrilha cardPonto carrosselCard'>
             <div className="info vertical">
-            <h2>{ponto.planta || ponto.misc || ponto.Caminho}</h2>
+            <h2>{ponto.nome}</h2>
             </div>
         </div>
         
