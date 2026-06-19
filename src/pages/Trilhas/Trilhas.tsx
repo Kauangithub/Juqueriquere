@@ -21,25 +21,19 @@ export default function Trilhas() {
             trilha.nome.toLowerCase().includes(search.toLowerCase())
         )
         .sort(order[orderKey]) as Trilha[];
-
+    
     const trilhasList = trilhas.map((trilha) => (
-        <CardTrilha key={trilha.id} trilha={trilha}/>
+        <CardTrilha
+            id={trilha.id} 
+            key={trilha.id}
+            trilha={trilha}
+        />
     ));
 
     return (
         <>
             {createPortal(
                 <div className="horizontal gap5" id="filtros">
-
-                    <div className="pesquisa horizontal">
-                        <div className="pesquisaIcon"></div>
-                        <input
-                            type="text"
-                            placeholder="Pesquisar trilha..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                    </div>
 
                     <Select
                         options={Object.keys(order)}
@@ -49,6 +43,15 @@ export default function Trilhas() {
                         value={orderKey}
                         style='none'
                     />
+                    <div className="pesquisa horizontal">
+                        <div className="pesquisaIcon"></div>
+                        <input
+                            type="text"
+                            placeholder="Pesquisar trilha..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
 
                 </div>,
                 document.body

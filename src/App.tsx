@@ -12,7 +12,11 @@ import Sobre from "./pages/Sobre.tsx";
 import Mapa from "./pages/Mapa.tsx";
 import Explorar from "./pages/Explorar.tsx";
 import Admin from "./pages/Admin.tsx";
+
 import AdminTrilhas from "./pages/Admin/AdminTrilhas.tsx";
+import CadastrarTrilha from "./pages/Admin/CadastrarTrilha.tsx";
+import EditarTrilha from "./pages/Admin/EditarTrilha.tsx";
+
 import AdminPontos from "./pages/Admin/AdminPontos.tsx";
 import AdminSobre from "./pages/Admin/AdminSobre.tsx";
 
@@ -210,6 +214,22 @@ function AnimatedRoutes() {
 							element={
 								<PageTransition>
 									<AdminTrilhas />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/admin/trilhas/cadastrar"
+							element={
+								<PageTransition>
+									<CadastrarTrilha />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/admin/trilhas/editar/:id"
+							element={
+								<PageTransition>
+									<EditarTrilha />
 								</PageTransition>
 							}
 						/>

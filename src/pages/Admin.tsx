@@ -11,7 +11,7 @@ export default function Admin() {
                 <h1>Administração do Site</h1>
                 <p>Gerencie conteúdos, trilhas, pontos de interesse, alertas e demais informações do Catálogo Digital PNMJ. Mantenha os dados atualizados para oferecer aos visitantes uma experiência informativa, acessível e segura.</p>
                 
-                <div className="conteudo vertical gap15">
+                <div className="conteudo gap15 desktopWrap3">
                     <div className="card vertical gap5">
                         <h2>Trilhas</h2>
                         <p>Cadastre, edite e organize as trilhas do parque, mantendo informações como descrição, dificuldade, distância e duração sempre atualizadas.</p>

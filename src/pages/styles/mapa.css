@@ -41,5 +41,6 @@ svg:has(.path:hover) .path:not(:hover) {
   stroke-width: 20px;
 }
 
-
-
+svg{
+  border-radius: 10px;
+}

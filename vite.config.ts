@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [react(),
   VitePWA({
     registerType: 'autoUpdate',
+    injectRegister: 'auto',
+    useCredentials: true,
 
     includeAssets: [
       '**/*.png',
@@ -37,12 +39,12 @@ export default defineConfig({
         {
           src: '/icon-192.webp',
           sizes: '192x192',
-          type: 'image/png'
+          type: 'image/webp'
         },
         {
           src: '/icon-512.webp',
           sizes: '512x512',
-          type: 'image/png'
+          type: 'image/webp'
         }
       ]
     },

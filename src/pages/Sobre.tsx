@@ -91,7 +91,7 @@ export default function Sobre(){
                     <p>O PNMJ oferece às pessoas com deficiência (PCD) a cadeira Julietti, que suporta até 70 kg para percorrer as trilhas com conforto.</p>
                 </div>
 
-                <div className="vertical gap15 desktopWrap">
+                <div className="vertical gap15 desktopWrap3">
                     <div className="vertical card" id='cardGrupo'>
                         <h1>Visitas em grupos</h1>
                         <p>

@@ -51,6 +51,9 @@ h3 {
     display: flex;
     flex-direction: column;
 }
+.justify{
+    justify-content: space-between;
+}
 .gap5{
     gap: 5px !important;
 }
@@ -230,6 +233,20 @@ option:checked {
         padding: 10px 20px;
         height: 40px;
     }
+
+    .circleButton{
+        width: 45px;
+        height: 45px;
+
+        .btn{
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100% !important;
+            border: 1px solid var(--headerBackground);
+        }
+    }
 }
 
 .pesquisa{
@@ -240,8 +257,8 @@ option:checked {
     border: 1px solid rgba(203, 255, 241, 0.7);
     color: var(--verdeClaro);
     padding: 0 15px;
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 50px;
+    height: 45px;
     
     .pesquisaIcon{
         width: 24px;
@@ -278,15 +295,18 @@ option:checked {
     aspect-ratio: 1/1;
     height: fit-content;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--verdeClaro);
     border-radius: 20px;
     overflow: hidden;
+    padding: 10px;
 
     p{
         color: var(--texto);
     }
+
 }
 .mapaInterativo{
     width: 55%;
@@ -440,6 +460,35 @@ ul{
     gap: 15px;
 }
 
+.desktopWrap{
+    display: grid;
+    width: 100%;
+    grid-template-columns:
+        if(
+            media(width < 850px): 1fr;
+            media(width > 850px): repeat(2, 1fr);
+        )
+    ;
+
+    >.vertical{
+        min-width: 100%;
+    }
+}
+.desktopWrap3{
+    display: grid;
+    width: 100%;
+    grid-template-columns:
+        if(
+            media(width < 850px): 1fr;
+            media(width > 850px): repeat(3, 1fr);
+        )
+    ;
+
+    >.vertical{
+        min-width: 100%;
+    }
+}
+
 @media (width > 850px) {
     body{
         padding-top: 0;
@@ -495,12 +544,5 @@ ul{
     .listaGrid{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .desktopWrap{
-        flex-direction: row;
-        > *{
-            width: 100%;
-        }
     }
 }

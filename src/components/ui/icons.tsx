@@ -16,6 +16,10 @@ import Tempo        from '../../assets/icons/Tempo-light.webp';
 import DificuldadeDark  from '../../assets/icons/Dificuldade.webp';
 import DistanciaDark    from '../../assets/icons/Distancia.webp';
 import TempoDark        from '../../assets/icons/Tempo.webp';
+import Plus from '../../assets/icons/Plus.webp';
+import PlusDark from '../../assets/icons/PlusDark.webp';
+import Filter from '../../assets/icons/Filter.webp';
+import FilterDark from '../../assets/icons/FilterDark.webp';
 
 export const icons = {
         "default": {
@@ -29,7 +33,9 @@ export const icons = {
             "Sobre"         : Sobre,
             "Dificuldade"   : Dificuldade,
             "Distancia"     : Distancia,
-            "Tempo"         : Tempo
+            "Tempo"         : Tempo,
+            "Plus"          : Plus,
+            "Filter"          : Filter
         },
         "dark": {
             "seta"          : setaDark,
@@ -42,7 +48,9 @@ export const icons = {
             "Sobre"         : Sobre,
             "Dificuldade"   : DificuldadeDark,
             "Distancia"     : DistanciaDark,
-            "Tempo"         : TempoDark
+            "Tempo"         : TempoDark,
+            "PlusDark"          : PlusDark,
+            "FilterDark"          : FilterDark
         },
          "none": {
             "seta"          : setaDark,
@@ -55,6 +63,8 @@ export const icons = {
             "Sobre"         : Sobre,
             "Dificuldade"   : Dificuldade,
             "Distancia"     : Distancia,
-            "Tempo"         : Tempo
+            "Tempo"         : Tempo,
+            "PlusDark"          : PlusDark,
+            "FilterDark"          : FilterDark
         }
 } as any;
