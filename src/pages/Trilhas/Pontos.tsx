@@ -10,11 +10,9 @@ export default function Pontos() {
         "Nome A-Z": (a: any, b: any) => a.nome.localeCompare(b.nome),
         "Nome Z-A": (a: any, b: any) => b.nome.localeCompare(a.nome),
     } as const;
-
     type OrderKey = keyof typeof order;
 
-
-    const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
+    const [orderKey, setOrderKey] = useState<OrderKey>(Object.keys(order)[0] as OrderKey);
     const [search, setSearch] = useState("");
 
     const getNomePonto = (ponto: any) => {
@@ -44,14 +42,14 @@ export default function Pontos() {
                 }
             )
         );
-
-
     const pontosList = pontosFiltrados.map((item, index) => (
-        <CardPonto
-            key={index}
-            ponto={item.ponto}
-            trilha={item.trilha}
-        />
+        <div>
+            {!Object(item.ponto).caminho && <CardPonto
+                key={index}
+                ponto={item.ponto}
+                trilha={item.trilha}
+            />  }
+        </div>
     ));
 
     return (
@@ -82,13 +80,10 @@ export default function Pontos() {
                 </div>,
                 document.body
             )}
-
-
             <div className="paddingHeader"></div>
-
-
             <section>
                 <div className="conteudo vertical">
+
                     <div className="img-fade" id="capivara"></div>
                     <div className="info vertical gap5">
                         <h1>Pontos</h1>
@@ -97,9 +92,7 @@ export default function Pontos() {
                         </p>
                     </div>
 
-
                     <div className="lista vertical">
-
                         <p>
                             {pontosList.length} pontos encontrados.
                         </p>
@@ -107,7 +100,7 @@ export default function Pontos() {
                             {pontosList}
                         </div>
                     </div>
-
+                    
                 </div>
             </section>
 

@@ -17,6 +17,8 @@ export default function CardPonto({ ponto, trilha: _trilha  /*Temporário*/ }: P
         <div className='cardTrilha cardPonto carrosselCard'>
             <div className="info vertical">
             <h2>{ponto.planta || ponto.misc || ponto.Caminho}</h2>
+            
+            <p>{_trilha}</p>
             </div>
         </div>
         

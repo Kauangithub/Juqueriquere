@@ -13,7 +13,7 @@ export default function Trilhas() {
 
     type OrderKey = keyof typeof order;
 
-    const [orderKey, setOrderKey] = useState<OrderKey>("Nome A-Z");
+    const [orderKey, setOrderKey] = useState<OrderKey>(Object.keys(order)[0] as OrderKey);
     const [search, setSearch] = useState("");
 
     const trilhas = [...data.trilhas]
