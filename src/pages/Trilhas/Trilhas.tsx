@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import data from '../../data.json';
+import { useEffect, useState } from 'react';
+import { db } from "../../lib/dexie";
 import Select from '../../components/ui/form/Select.tsx';
 import CardTrilha from '../../components/ui/CardTrilha.tsx';
 import type Trilha from './TrilhaInfo';
 import { createPortal } from "react-dom";
 
 export default function Trilhas() {
+
     const order = {
         "Nome A-Z": (a: any, b: any) => a.nome.localeCompare(b.nome),
         "Nome Z-A": (a: any, b: any) => b.nome.localeCompare(a.nome),
@@ -16,15 +17,26 @@ export default function Trilhas() {
     const [orderKey, setOrderKey] = useState<OrderKey>(Object.keys(order)[0] as OrderKey);
     const [search, setSearch] = useState("");
 
-    const trilhas = [...data.trilhas]
+    const [trilhas, setTrilhas] = useState<Trilha[]>([]);
+
+    useEffect(() => {
+        async function loadData() {
+            const data = await db.trilhas.toArray();
+            setTrilhas(data as Trilha[]);
+        }
+
+        loadData();
+    }, []);
+
+    const trilhasFiltradas = trilhas
         .filter((trilha) =>
             trilha.nome.toLowerCase().includes(search.toLowerCase())
         )
-        .sort(order[orderKey]) as Trilha[];
-    
-    const trilhasList = trilhas.map((trilha) => (
+        .sort(order[orderKey]);
+
+    const trilhasList = trilhasFiltradas.map((trilha) => (
         <CardTrilha
-            id={trilha.id} 
+            id={trilha.id}
             key={trilha.id}
             trilha={trilha}
         />
@@ -43,6 +55,7 @@ export default function Trilhas() {
                         value={orderKey}
                         style='none'
                     />
+
                     <div className="pesquisa horizontal">
                         <div className="pesquisaIcon"></div>
                         <input
@@ -61,17 +74,16 @@ export default function Trilhas() {
 
             <section>
                 <div className="conteudo vertical">
+
                     <div className="img-fade" id="capivara"></div>
 
                     <div className="info vertical gap5">
-                        <h1>Trilhas</h1>                        
+                        <h1>Trilhas</h1>
                         <p>Explore caminhos serenos, admire vistas deslumbrantes e encontre a paz na jornada.</p>
                     </div>
 
                     <div className="lista vertical">
-                        <p>{trilhasList.length} trilhas encontradas.</p>
-
-                        
+                        <p>{trilhasFiltradas.length} trilhas encontradas.</p>
 
                         <div className="listaGrid">
                             {trilhasList}
@@ -80,7 +92,6 @@ export default function Trilhas() {
                     </div>
                 </div>
             </section>
-        
         </>
     );
 }

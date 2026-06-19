@@ -3,9 +3,7 @@ import './CardPonto.css'
 import type TrilhaType from '../../pages/Trilhas/TrilhaInfo';
 
 interface Ponto {
-    planta?: string;
-    Caminho?: string;
-    misc?: string;
+    nome: string;
     latitude?: string;
     longitude?: string;
 }
@@ -16,14 +14,14 @@ interface Props {
 }
 
 export default function CardPonto({ ponto, trilha: trilha  /*Temporário*/ }: Props) {
-    if (!ponto.planta && !ponto.misc && !ponto.Caminho) return null; // Retorna null se o ponto não tiver nome
+    if (!ponto.nome) return null; // Retorna null se o ponto não tiver nome
     
     console.log(Object(trilha).nome);
     return (
-        <Link to={`/trilha/${Object(trilha).id}/ponto/${ponto.planta || ponto.misc || ponto.Caminho}`}>
+        <Link to={`/trilha/${Object(trilha).id}/ponto/${ponto.nome}`}>
             <div className='cardTrilha cardPonto carrosselCard'>
                 <div className="info vertical">
-                <h2>{ponto.planta || ponto.misc || ponto.Caminho}</h2>
+                <h2>{ponto.nome}</h2>
                 {ponto.latitude && ponto.longitude && (
                     <p>Coordenadas: {ponto.latitude}, {ponto.longitude}</p>
                 )}

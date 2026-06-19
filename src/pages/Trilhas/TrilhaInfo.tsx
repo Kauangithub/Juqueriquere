@@ -1,7 +1,5 @@
 interface PontoInteresse {
-    planta?: string;
-    caminho?: string;
-    misc?: string;
+    nome: string;
     latitude?: string;
     longitude?: string;
 }
