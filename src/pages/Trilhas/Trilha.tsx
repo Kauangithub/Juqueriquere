@@ -23,7 +23,7 @@ export default function Trilha() {
         <CardPonto
             key={index}
             ponto={ponto}
-            trilha={trilha.nome}
+            trilha={trilha}
         />
     ));
     const [hl, setHl] = useState([id]) as unknown as [number | string | (number | string)[], (id: number | string | (number | string)[]) => void];

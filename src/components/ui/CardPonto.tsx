@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
 import './CardPonto.css'
+import type TrilhaType from '../../pages/Trilhas/TrilhaInfo';
+
 interface Ponto {
     planta?: string;
     Caminho?: string;
@@ -9,18 +12,26 @@ interface Ponto {
 
 interface Props {
     ponto: Ponto;
-    trilha: string;
+    trilha: TrilhaType; // Pode ser do tipo TrilhaType
 }
 
-export default function CardPonto({ ponto, trilha: _trilha  /*Temporário*/ }: Props) {
+export default function CardPonto({ ponto, trilha: trilha  /*Temporário*/ }: Props) {
+    if (!ponto.planta && !ponto.misc && !ponto.Caminho) return null; // Retorna null se o ponto não tiver nome
+    
+    console.log(Object(trilha).nome);
     return (
-        <div className='cardTrilha cardPonto carrosselCard'>
-            <div className="info vertical">
-            <h2>{ponto.planta || ponto.misc || ponto.Caminho}</h2>
-            
-            <p>{_trilha}</p>
+        <Link to={`/trilha/${Object(trilha).id}/ponto/${ponto.planta || ponto.misc || ponto.Caminho}`}>
+            <div className='cardTrilha cardPonto carrosselCard'>
+                <div className="info vertical">
+                <h2>{ponto.planta || ponto.misc || ponto.Caminho}</h2>
+                {ponto.latitude && ponto.longitude && (
+                    <p>Coordenadas: {ponto.latitude}, {ponto.longitude}</p>
+                )}
+                {!ponto.latitude && !ponto.longitude && (
+                    <p>Coordenadas: Não disponíveis</p>
+                )}
+                </div>
             </div>
-        </div>
-        
+        </Link>
     );
 }

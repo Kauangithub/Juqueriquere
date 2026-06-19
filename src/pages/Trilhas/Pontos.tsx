@@ -3,6 +3,7 @@ import data from '../../data.json';
 import Select from '../../components/ui/form/Select.tsx';
 import CardPonto from '../../components/ui/CardPonto.tsx';
 import { createPortal } from "react-dom";
+//import SimpleButton from '../../components/ui/buttons/SimpleButton.tsx';
 
 
 export default function Pontos() {
@@ -22,7 +23,7 @@ export default function Pontos() {
     const pontos = data.trilhas.flatMap((trilha) =>
         trilha.pontos_interesse.map((ponto) => ({
             ponto,
-            trilha: trilha.nome
+            trilha: trilha
         }))
     );
 
@@ -43,13 +44,15 @@ export default function Pontos() {
             )
         );
     const pontosList = pontosFiltrados.map((item, index) => (
-        <div>
-            {!Object(item.ponto).caminho && <CardPonto
-                key={index}
-                ponto={item.ponto}
-                trilha={item.trilha}
-            />  }
-        </div>
+        <>
+            {!Object(item.ponto).caminho && 
+                <CardPonto
+                    key={index}
+                    ponto={item.ponto}
+                    trilha={Object(item.trilha)}
+                /> 
+             }
+        </>
     ));
 
     return (

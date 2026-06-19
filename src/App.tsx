@@ -8,6 +8,8 @@ import Trilha from './pages/Trilhas/Trilha.tsx';
 import NotFound from './pages/NotFound.tsx';
 import Trilhas from "./pages/Trilhas/Trilhas.tsx";
 import Pontos from "./pages/Trilhas/Pontos.tsx";
+import Ponto from "./pages/Trilhas/Ponto.tsx";
+
 import Sobre from "./pages/Sobre.tsx";
 import Mapa from "./pages/Mapa.tsx";
 import Explorar from "./pages/Explorar.tsx";
@@ -190,6 +192,14 @@ function AnimatedRoutes() {
 							element={
 								<PageTransition>
 									<Trilha />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/trilha/:id/ponto/:nomePonto"
+							element={
+								<PageTransition>
+									<Ponto />
 								</PageTransition>
 							}
 						/>

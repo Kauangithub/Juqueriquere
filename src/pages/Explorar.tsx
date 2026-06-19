@@ -33,7 +33,7 @@ export default function Explorar() {
         <CardPonto
             key={index}
             ponto={ponto}
-            trilha={trilhaAtual.nome}
+            trilha={trilhaAtual}
         />
     ));
 
