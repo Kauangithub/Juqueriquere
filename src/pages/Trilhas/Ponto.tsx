@@ -9,7 +9,7 @@ export default function Ponto() {
     // carrega o objeto ponto
     const trilha = data.trilhas
         .find(t => t.id === parseInt(id || ''))
-    const ponto = trilha?.pontos_interesse.find(p => Object(p).planta === nomePonto || Object(p).misc === nomePonto || Object(p).caminho === nomePonto);
+    const ponto = trilha?.pontos_interesse.find(p => Object(p).nome);
     console.log(id, nomePonto);
     console.log(ponto);
     if (!trilha || !ponto) {return (<NotFound/>);}
