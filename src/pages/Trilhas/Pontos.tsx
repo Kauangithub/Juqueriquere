@@ -70,7 +70,6 @@ export default function Pontos() {
                         />
                     </div>
 
-
                     <Select
                         options={Object.keys(order)}
                         onChange={(newValue) => {
@@ -90,13 +89,9 @@ export default function Pontos() {
 
             <section>
                 <div className="conteudo vertical">
-
                     <div className="img-fade" id="capivara"></div>
-
-
                     <div className="info vertical gap5">
                         <h1>Pontos</h1>
-
                         <p>
                             Descubra as espécies nativas do parque e aprenda mais sobre os seres que habitam esse espaço.
                         </p>
@@ -108,12 +103,9 @@ export default function Pontos() {
                         <p>
                             {pontosList.length} pontos encontrados.
                         </p>
-
-
                         <div className="listaGrid">
                             {pontosList}
                         </div>
-
                     </div>
 
                 </div>
