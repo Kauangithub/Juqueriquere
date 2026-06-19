@@ -9,7 +9,7 @@ export default function Ponto() {
     // carrega o objeto ponto
     const trilha = data.trilhas
         .find(t => t.id === parseInt(id || ''))
-    const ponto = trilha?.pontos_interesse.find(p => Object(p).nome);
+    const ponto = trilha?.pontos_interesse.find(p => String(Object.values(p)[0]) === nomePonto);
     console.log(id, nomePonto);
     console.log(ponto);
     if (!trilha || !ponto) {return (<NotFound/>);}
@@ -22,9 +22,9 @@ export default function Ponto() {
                 <div className="vertical gap15">
                     <div className="horizontal gap5">
                         <SimpleButton path="/explorar/" type='back' icon='setaBack'>Voltar para Mapa</SimpleButton>
-                        <SimpleButton path="/explorar/" type='back' icon='setaBack'>{trilha.nome}</SimpleButton>
+                        <SimpleButton path={`/trilha/${id}`} type='back' icon='setaBack'>{trilha.nome}</SimpleButton>
                     </div>
-                    <h1>{Object(ponto).planta || Object(ponto).misc || Object(ponto).caminho}</h1>
+                    <h1>{Object(ponto).nome}</h1>
                     <h1>{trilha.nome}</h1>
                     {
                         ponto.latitude && ponto.longitude && (
